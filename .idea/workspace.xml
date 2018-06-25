@@ -18,8 +18,8 @@
       <file leaf-file-name="primer.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/primer.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="149">
-              <caret line="31" column="10" lean-forward="false" selection-start-line="31" selection-start-column="10" selection-end-line="31" selection-end-column="10" />
+            <state relative-caret-position="127">
+              <caret line="28" column="69" lean-forward="false" selection-start-line="28" selection-start-column="69" selection-end-line="28" selection-end-column="69" />
               <folding>
                 <element signature="e#49#63#0" expanded="true" />
               </folding>
@@ -292,8 +292,8 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/primer.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="149">
-          <caret line="31" column="10" lean-forward="false" selection-start-line="31" selection-start-column="10" selection-end-line="31" selection-end-column="10" />
+        <state relative-caret-position="127">
+          <caret line="28" column="69" lean-forward="false" selection-start-line="28" selection-start-column="69" selection-end-line="28" selection-end-column="69" />
           <folding>
             <element signature="e#49#63#0" expanded="true" />
           </folding>

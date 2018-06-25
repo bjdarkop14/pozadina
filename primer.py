@@ -27,23 +27,21 @@ x = start_x
 y = start_y
 # "pygame.draw.rect(screen, Color, (x, y, x_size, y_size))"
 pygame.draw.rect(screen, My_light_blue_color, (x, y, x_size, y_size))
-# Weeee = True
-# while Weeee:
-while y > 0:
-    q = random.randint(0,1)             #bira da li ce ici levo ili desno(0 - levo, 1 - desno
-    if q == 0:
-            x = x-35
-            y = y-30
-            pygame.draw.rect(screen, My_light_blue_color, (x, y, x_size, y_size))
-    elif q == 1:
-            x = x+35
-            y = y-30
-            pygame.draw.rect(screen, My_light_blue_color, (x, y, x_size, y_size))
-pygame.display.flip()
-
-   # if the 'X' button is pressed the window should close:
-# Geesh = pygame.event.get()
-# if len(Geesh) > 0:
-#         if Geesh[0].type == QUIT: Weeee = False
-## Once this line is reached the window should close
+running = True
+while running:
+  for event in pygame.event.get():
+    if event.type == pygame.QUIT:
+      running = False
+    else:
+        while y > 0:
+            q = random.randint(0,1)             #bira da li ce ici levo ili desno(0 - levo, 1 - desno
+            if q == 0:
+                x = x-35
+                y = y-30
+                pygame.draw.rect(screen, My_light_blue_color, (x, y, x_size, y_size))
+            elif q == 1:
+                x = x+35
+                y = y-30
+                pygame.draw.rect(screen, My_light_blue_color, (x, y, x_size, y_size))
+        pygame.display.flip()
 
