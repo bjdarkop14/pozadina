@@ -8,7 +8,7 @@ pygame.init()
 APPLICATION_x_size = 500
 APPLICATION_y_size = 400
 start_x = 170       #x kordinata pocetnog bloka
-start_y = 260       #y kordinata pocetnog bloka
+start_y = 360       #y kordinata pocetnog bloka
 x_size = 50         #duzina bloka
 y_size = 30         #visina bloka
 
