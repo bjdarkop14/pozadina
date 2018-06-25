@@ -1,4 +1,3 @@
-# This is an example that uses pygame.draw.rect:
 import os, sys
 import random
 import math
@@ -8,7 +7,7 @@ pygame.init()
 APPLICATION_x_size = 500
 APPLICATION_y_size = 400
 start_x = 170       #x kordinata pocetnog bloka
-start_y = 360       #y kordinata pocetnog bloka
+start_y = 60       #y kordinata pocetnog bloka
 x_size = 50         #duzina bloka
 y_size = 30         #visina bloka
 
@@ -23,6 +22,7 @@ pygame.display.flip()
 
 # a color can be: (0 to 255, 0 to 255, 0 to 255)
 My_light_blue_color = (190, 190, 255)
+My_light_red_color = (182, 0, 0)
 x = start_x
 y = start_y
 # "pygame.draw.rect(screen, Color, (x, y, x_size, y_size))"
