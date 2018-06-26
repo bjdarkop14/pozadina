@@ -16,6 +16,9 @@ class InputBox:
         self.txt_surface = FONT.render(text, True, self.color)
         self.active = False
 
+
+
+
     def handle_event(self, event):
         if event.type == pg.MOUSEBUTTONDOWN:
             # If the user clicked on the input_box rect.
