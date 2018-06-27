@@ -31,7 +31,8 @@ x = start_x
 y = start_y
 playerX = 194
 playerY = 375
-
+AxStaro = playerX
+AyStaro = playerY
 # "pygame.draw.rect(screen, Color, (x, y, x_size, y_size))"
 pygame.draw.rect(screen, My_light_blue_color, (x, y, x_size, y_size))
 player = pygame.Rect((playerX, playerY, 4, 4))              #pocetna pozicija igraca
@@ -73,25 +74,25 @@ while not done:
                     f.write((gas + ", " + kocnica + ", " + volan + "\n"))
 
 
-
                     #kretnja igraca
+                    #pocetna pozicija igraca
+
+
                     pygame.draw.rect(screen, My_light_blue_color, player)           #brisanje stare pozicije
                     if Volan < 0:
-                        Ax = playerX - int((Gas - Kocnica)*math.cos(Volan))
-                        Ay = playerY - abs(int((Gas - Kocnica) * math.sin(Volan)))
+                        Ax = AxStaro - int((Gas - Kocnica)*math.cos(Volan))
+                        Ay = AyStaro - abs(int((Gas - Kocnica) * math.sin(Volan)))
                     if Kocnica > Gas:
-                        Ax = playerX
-                        Ay = playerY
+                        Ax = AxStaro
+                        Ay = AyStaro
                     elif Volan > 0:
-                        Ax = int((Gas - Kocnica)*math.cos(Volan)) + playerX
-                        Ay = playerY - abs(int((Gas - Kocnica)*math.sin(Volan)))
-
-
-
+                        Ax = int((Gas - Kocnica)*math.cos(Volan)) + AxStaro
+                        Ay = AyStaro - abs(int((Gas - Kocnica)*math.sin(Volan)))
 
                     player = pygame.Rect((Ax, Ay, 4, 4))
                     pygame.draw.rect(screen, My_light_red_color, player)            #generisanje novog
-
+                    AxStaro = Ax
+                    AyStaro = Ay
 
         pygame.draw.rect(screen, Button_Color, button)
         labelButton = FONT.render("Pokreni",1,(0,0,0))
