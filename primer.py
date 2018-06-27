@@ -5,7 +5,7 @@ import pygame
 from Unos_podataka import *
 from pygame.locals import *
 pygame.init()
-APPLICATION_x_size = 1000
+APPLICATION_x_size = 1200
 APPLICATION_y_size = 400
 start_x = 170       #x kordinata pocetnog bloka
 start_y = 360       #y kordinata pocetnog bloka
@@ -19,7 +19,7 @@ Button_Color = (220, 220, 220)
 FONT = pygame.font.Font(None, 32)
 
 screen = pygame.display.set_mode((APPLICATION_x_size, APPLICATION_y_size))
-pygame.display.set_caption('Random teren')
+pygame.display.set_caption('Simulacija')
 pygame.mouse.set_visible(True)
 #pygame.mouse.set_visible(False)
 black_square_that_is_the_size_of_the_screen = pygame.Surface(screen.get_size())
@@ -29,9 +29,13 @@ pygame.display.flip()
 
 x = start_x
 y = start_y
+playerX = 194
+playerY = 375
+
 # "pygame.draw.rect(screen, Color, (x, y, x_size, y_size))"
 pygame.draw.rect(screen, My_light_blue_color, (x, y, x_size, y_size))
-pygame.draw.rect(screen, My_light_red_color, (194, 375, 4, 4))
+player = pygame.Rect((playerX, playerY, 4, 4))              #pocetna pozicija igraca
+pygame.draw.rect(screen, My_light_red_color, player)
 
 clock = pg.time.Clock()
 input_box1 = InputBox(700, 20, 140, 32)
@@ -56,18 +60,42 @@ while not done:
                 if button.collidepoint(event.pos):
                     gas = input_box1.text.strip()
                     print(gas)
+                    Gas = float(gas)
                     kocnica = input_box2.text.strip()
                     print(kocnica)
+                    Kocnica = float(kocnica)
                     volan = input_box3.text.strip()
                     print(volan)
-                    f.write(gas)
-                    f.write(", ")
-                    f.write(kocnica)
-                    f.write(", ")
-                    f.write(volan)
-                    input_box1.text = ''
-                    input_box2.text = ''
-                    input_box3.text = ''
+                    Volan = float(volan)
+                    f.write((gas + ", " + kocnica + ", " + volan + "\n"))
+                    #kretnja igraca
+                    pygame.draw.rect(screen, My_light_blue_color, player)           #brisanje stare pozicije
+                    if Volan < 0:
+                        Ax = playerX - int((Gas - Kocnica)*math.cos(Volan))
+                    else:
+                        Ax = int((Gas - Kocnica)*math.cos(Volan)) + playerX
+                    Ay = playerY - abs(int((Gas - Kocnica)*math.sin(Volan)))
+                    player = pygame.Rect((Ax, Ay, 4, 4))
+                    pygame.draw.rect(screen, My_light_red_color, player)            #generisanje novog
+
+        #pokusaj uklanjanja proslih podataka iz inputbox - a
+        # if event.type == pygame.KEYDOWN:
+        #     if input_box1.active:
+        #         if event.key == pg.K_BACKSPACE:
+        #             input_box1.text = input_box1.text[:-1]
+        #         if event.key ==  pygame.K_RETURN:
+        #             input_box1.text = ''
+        #     if input_box2.active:
+        #         if event.key == pg.K_BACKSPACE:
+        #             input_box2.text = input_box2.text[:-1]
+        #         if event.key == pygame.K_RETURN:
+        #             input_box2.text = ''
+        #     if input_box3.active:
+        #         if event.key == pg.K_BACKSPACE:
+        #             input_box3.text = input_box3.text[:-1]
+        #         if event.key ==  pygame.K_RETURN:
+        #             input_box3.text = ''
+
 
         pygame.draw.rect(screen, Button_Color, button)
         labelButton = FONT.render("Prodji",1,(0,0,0))
@@ -83,6 +111,10 @@ while not done:
     for box in input_boxes:
         box.draw(screen)
     # render text
+    labelGas = FONT.render("Gas i kocnica u opsegu od 0 - 100", 1, (255, 0, 0))
+    screen.blit(labelGas, (600,340))
+    labelGas = FONT.render("A ugao volana je u opsegu od (-90) do 90", 1, (255, 0, 0))
+    screen.blit(labelGas, (600, 368))
     labelGas = FONT.render("Gas", 1, (255, 255, 0))
     screen.blit(labelGas, (600, 20))
     labelKocnica = FONT.render("Kocnica", 1, (255, 255, 0))
@@ -133,7 +165,3 @@ while not done:
             pygame.draw.rect(screen, My_light_blue_color, (x, y, x_size, y_size))
 
     pygame.display.flip()
-
-
-
-
