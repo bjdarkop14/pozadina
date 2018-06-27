@@ -70,24 +70,24 @@ while not done:
                     #volan = input_box3.text.strip()
                     volan = input("Unesi volan")
                     print(volan)
-                    Volan = float(volan)
+                    VolanStepen = float(volan)
                     f.write((gas + ", " + kocnica + ", " + volan + "\n"))
-
+                    VolanRadian = math.radians(VolanStepen)
 
                     #kretnja igraca
                     #pocetna pozicija igraca
 
 
                     pygame.draw.rect(screen, My_light_blue_color, player)           #brisanje stare pozicije
-                    if Volan < 0:
-                        Ax = AxStaro - int((Gas - Kocnica)*math.cos(Volan))
-                        Ay = AyStaro - abs(int((Gas - Kocnica) * math.sin(Volan)))
+                    if VolanRadian < 0:
+                        Ax = AxStaro - int((Gas - Kocnica)*math.cos(VolanRadian))
+                        Ay = AyStaro - abs(int((Gas - Kocnica) * math.sin(VolanRadian)))
                     if Kocnica > Gas:
                         Ax = AxStaro
                         Ay = AyStaro
-                    elif Volan > 0:
-                        Ax = int((Gas - Kocnica)*math.cos(Volan)) + AxStaro
-                        Ay = AyStaro - abs(int((Gas - Kocnica)*math.sin(Volan)))
+                    elif VolanRadian > 0:
+                        Ax = int((Gas - Kocnica)*math.cos(VolanRadian)) + AxStaro
+                        Ay = AyStaro - abs(int((Gas - Kocnica)*math.sin(VolanRadian)))
 
                     player = pygame.Rect((Ax, Ay, 4, 4))
                     pygame.draw.rect(screen, My_light_red_color, player)            #generisanje novog
