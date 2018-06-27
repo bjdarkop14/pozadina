@@ -58,47 +58,43 @@ while not done:
             if event.button == 1:
                 # `event.pos` is the mouse position.
                 if button.collidepoint(event.pos):
-                    gas = input_box1.text.strip()
+#                    gas = input_box1.text.strip()
+                    gas = input("Unesi gas: ")
                     print(gas)
                     Gas = float(gas)
-                    kocnica = input_box2.text.strip()
+#                    kocnica = input_box2.text.strip()
+                    kocnica = input("Unesi kocnicu: ")
                     print(kocnica)
                     Kocnica = float(kocnica)
-                    volan = input_box3.text.strip()
+                    #volan = input_box3.text.strip()
+                    volan = input("Unesi volan")
                     print(volan)
                     Volan = float(volan)
                     f.write((gas + ", " + kocnica + ", " + volan + "\n"))
+
+
+
                     #kretnja igraca
                     pygame.draw.rect(screen, My_light_blue_color, player)           #brisanje stare pozicije
                     if Volan < 0:
                         Ax = playerX - int((Gas - Kocnica)*math.cos(Volan))
-                    else:
+                        Ay = playerY - abs(int((Gas - Kocnica) * math.sin(Volan)))
+                    if Kocnica > Gas:
+                        Ax = playerX
+                        Ay = playerY
+                    elif Volan > 0:
                         Ax = int((Gas - Kocnica)*math.cos(Volan)) + playerX
-                    Ay = playerY - abs(int((Gas - Kocnica)*math.sin(Volan)))
+                        Ay = playerY - abs(int((Gas - Kocnica)*math.sin(Volan)))
+
+
+
+
                     player = pygame.Rect((Ax, Ay, 4, 4))
                     pygame.draw.rect(screen, My_light_red_color, player)            #generisanje novog
 
-        #pokusaj uklanjanja proslih podataka iz inputbox - a
-        # if event.type == pygame.KEYDOWN:
-        #     if input_box1.active:
-        #         if event.key == pg.K_BACKSPACE:
-        #             input_box1.text = input_box1.text[:-1]
-        #         if event.key ==  pygame.K_RETURN:
-        #             input_box1.text = ''
-        #     if input_box2.active:
-        #         if event.key == pg.K_BACKSPACE:
-        #             input_box2.text = input_box2.text[:-1]
-        #         if event.key == pygame.K_RETURN:
-        #             input_box2.text = ''
-        #     if input_box3.active:
-        #         if event.key == pg.K_BACKSPACE:
-        #             input_box3.text = input_box3.text[:-1]
-        #         if event.key ==  pygame.K_RETURN:
-        #             input_box3.text = ''
-
 
         pygame.draw.rect(screen, Button_Color, button)
-        labelButton = FONT.render("Prodji",1,(0,0,0))
+        labelButton = FONT.render("Pokreni",1,(0,0,0))
         screen.blit(labelButton,(650,300))
         pygame.display.update()
 
@@ -107,10 +103,8 @@ while not done:
 
     for box in input_boxes:
         box.update()
-
-    for box in input_boxes:
         box.draw(screen)
-    # render text
+    #render text
     labelGas = FONT.render("Gas i kocnica u opsegu od 0 - 100", 1, (255, 0, 0))
     screen.blit(labelGas, (600,340))
     labelGas = FONT.render("A ugao volana je u opsegu od (-90) do 90", 1, (255, 0, 0))
