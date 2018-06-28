@@ -3,7 +3,6 @@ import random
 import math
 import pygame
 import time
-from Unos_podataka import *
 from pygame.locals import *
 pygame.init()
 APPLICATION_x_size = 500
@@ -48,7 +47,7 @@ def Crtaj(x,y,x_size,y_size):
     screen.blit(labelButton,(160,450))
     pygame.display.update()
 
-    pg.display.flip()
+    pygame.display.flip()
 
 #generisanje random mape
     while y > 0:

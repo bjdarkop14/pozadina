@@ -15,7 +15,8 @@ button = pygame.Rect(160, 450, 140, 32)
 
 def main():
     done = False
-    brzinaStara = 0
+    brzinaStaraX = 0
+    brzinaStaraY = 0
     start_x = 170  # x kordinata pocetnog bloka
     start_y = 360  # y kordinata pocetnog bloka
     x_size = 50  # duzina bloka
@@ -24,8 +25,7 @@ def main():
     y = start_y
     playerX = 194
     playerY = 375
-    FrameRate = 60
-    dt = 1.0 / FrameRate
+    dt = 0.01
     while not done:
         #clock.tick(30)
         for event in pygame.event.get():
@@ -50,18 +50,19 @@ def main():
                         VolanStepen = float(volan)
                         VolanRadian = math.radians(VolanStepen)
 
-
-                        brzina = Brzina(brzinaStara, Gas, Kocnica, playerX, playerY)
-                        Xx, Xy = Sledeca_Pozicija(VolanRadian,brzina,playerX,playerY)
+                        Ax, Ay = Ubrzanje(Gas,Kocnica,VolanRadian)
+                        brzinaX, brzinaY = Brzina(brzinaStaraX,brzinaStaraY, Ax, Ay, dt, playerX, playerY)
+                        Xx, Xy = Sledeca_Pozicija(brzinaX, brzinaY, dt, playerX,playerY)
                         playerX = Xx
                         playerY = Xy
 
-                        f.write((gas + ", " + kocnica + ", " + volan + "\t" + str(brzina) + ", " + str(brzinaStara) + ", " + str(float(playerX)) + ", " + str(float(playerY)) + ", " + str(float(dt)) + "\n"))
-                        print((gas + ", " + kocnica + ", " + volan + "\t" + str(brzina) + ", " + str(brzinaStara) + ", " + str(float(playerX)) + ", " + str(float(playerY)) + ", " + str(float(dt)) + "\n"))
+                        f.write((gas + ", " + kocnica + ", " + volan + "\t" + str(brzinaX) +", "+ str(brzinaY)+", " +  ", " + str(brzinaStaraX)+", "+str(brzinaStaraY) + ", " + ", " + str(float(playerX)) + ", " + str(float(playerY)) + ", " + str(float(dt)) + "\n"))
+                        print((gas + ", " + kocnica + ", " + volan + "\t" + str(brzinaX) +", "+ str(brzinaY)+ ", " + str(brzinaStaraX)+", "+str(brzinaStaraY)  + ", " + str(float(playerX)) + ", " + str(float(playerY)) + ", " + str(float(dt)) + "\n"))
 
-                        print(brzinaStara)
-                        brzinaStara=brzina
-                        print(brzinaStara)
+                        print(brzinaStaraX,brzinaStaraY)
+                        brzinaStaraX=brzinaX
+                        brzinaStaraY=brzinaY
+                        print(brzinaStaraX,brzinaY)
 if __name__ == '__main__':
         main()
         pygame.quit()
