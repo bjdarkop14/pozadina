@@ -1,17 +1,34 @@
-from teren import Crtaj
 import pygame
 from Kretanje import *
+from Unos import  *
 import time
 import math
+import random
 pygame.init()
 
-# clock = pygame.time.Clock() # load clock
+clock = pygame.time.Clock()     # load clock
 
-f = open("podaci.txt", "w")
-f.write('')
+
+pygame.time.set_timer(pygame.USEREVENT1,60)
+pygame.time.set_timer(pygame.USEREVENT,3000)
+
 button = pygame.Rect(160, 450, 140, 32)
 
+APPLICATION_x_size = 500
+APPLICATION_y_size = 500
 
+# a color can be: (0 to 255, 0 to 255, 0 to 255)
+My_light_blue_color = (190, 190, 255)
+My_light_red_color = (182, 0, 0)
+FONT = pygame.font.Font(None, 32)
+
+screen = pygame.display.set_mode((APPLICATION_x_size, APPLICATION_y_size))
+pygame.display.set_caption('Simulacija')
+pygame.mouse.set_visible(True)
+black_square_that_is_the_size_of_the_screen = pygame.Surface(screen.get_size())
+black_square_that_is_the_size_of_the_screen.fill((0, 0, 0))
+screen.blit(black_square_that_is_the_size_of_the_screen, (0, 0))
+pygame.display.flip()
 
 def main():
     done = False
@@ -20,49 +37,78 @@ def main():
     start_x = 170  # x kordinata pocetnog bloka
     start_y = 360  # y kordinata pocetnog bloka
     x_size = 50  # duzina bloka
-    y_size = 30
+    y_size = 30  # sirina bloka
     x = start_x
     y = start_y
     playerX = 194
     playerY = 375
+    pygame.draw.rect(screen, My_light_blue_color, (x, y, x_size, y_size))  # prvi blok
     dt = 0.01
+    player = pygame.Rect((playerX, playerY, 4, 4))  # pocetna pozicija igraca
+    pygame.draw.rect(screen, My_light_red_color, player)
+    pygame.display.update()
+
+# pygame.mouse.set_visible(False)
     while not done:
         #clock.tick(30)
+
+        # generisanje random mape
+        while y > 0:
+            q = random.randint(0, 8)  # bira da li ce ici levo ili desno(0 - levo, 1 - desno
+            if q == 0:
+                y = y - 30
+                pygame.draw.rect(screen, My_light_blue_color, (x, y, x_size, y_size))
+            elif q == 1:
+                x = x + 20
+                y = y - 30
+                pygame.draw.rect(screen, My_light_blue_color, (x, y, x_size, y_size))
+            elif q == 2:
+                x = x - 20
+                y = y - 30
+                pygame.draw.rect(screen, My_light_blue_color, (x, y, x_size, y_size))
+            elif q == 3:
+                x = x - 10
+                y = y - 30
+                pygame.draw.rect(screen, My_light_blue_color, (x, y, x_size, y_size))
+            elif q == 4:
+                x = x + 10
+                y = y - 30
+                pygame.draw.rect(screen, My_light_blue_color, (x, y, x_size, y_size))
+            elif q == 5:
+                x = x - 5
+                y = y - 30
+                pygame.draw.rect(screen, My_light_blue_color, (x, y, x_size, y_size))
+            elif q == 6:
+                x = x + 5
+                y = y - 30
+                pygame.draw.rect(screen, My_light_blue_color, (x, y, x_size, y_size))
+            elif q == 7:
+                x = x - 15
+                y = y - 30
+                pygame.draw.rect(screen, My_light_blue_color, (x, y, x_size, y_size))
+            elif q == 8:
+                x = x + 15
+                y = y - 30
+                pygame.draw.rect(screen, My_light_blue_color, (x, y, x_size, y_size))
+
+        pygame.display.flip()
+
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 done = True
-            Crtaj(x, y, x_size, y_size)
-            # dugme
-            if event.type == pygame.MOUSEBUTTONDOWN:
-                # 1 is the left mouse button, 2 is middle, 3 is right.
-                if event.button == 1:
-                    # `event.pos` is the mouse position.
-                    if button.collidepoint(event.pos):
+            if event.type == pygame.USEREVENT:
+                Xx, Xy, brzinaX, brzinaY = Unos(brzinaStaraX, brzinaStaraY, playerX, playerY)
+                pygame.draw.rect(screen, My_light_red_color, (Xx, Xy, 4, 4))
+                print(brzinaStaraX, brzinaStaraY)
+                brzinaStaraX = brzinaX
+                brzinaStaraY = brzinaY
+                print(brzinaStaraX, brzinaY)
+                playerX = Xx
+                playerY = Xy
+            if event.type == pygame.USEREVENT1:
 
-                        gas = input("Unesi gas: ")
-                        print(gas)
-                        Gas = float(gas)
-                        kocnica = input("Unesi kocnicu: ")
-                        print(kocnica)
-                        Kocnica = float(kocnica)
-                        volan = input("Unesi volan")
-                        print(volan)
-                        VolanStepen = float(volan)
-                        VolanRadian = math.radians(VolanStepen)
+        pygame.display.flip()
 
-                        Ax, Ay = Ubrzanje(Gas,Kocnica,VolanRadian)
-                        brzinaX, brzinaY = Brzina(brzinaStaraX,brzinaStaraY, Ax, Ay, dt, playerX, playerY)
-                        Xx, Xy = Sledeca_Pozicija(brzinaX, brzinaY, dt, playerX,playerY)
-                        playerX = Xx
-                        playerY = Xy
-
-                        f.write((gas + ", " + kocnica + ", " + volan + "\t" + str(brzinaX) +", "+ str(brzinaY)+", " +  ", " + str(brzinaStaraX)+", "+str(brzinaStaraY) + ", " + ", " + str(float(playerX)) + ", " + str(float(playerY)) + ", " + str(float(dt)) + "\n"))
-                        print((gas + ", " + kocnica + ", " + volan + "\t" + str(brzinaX) +", "+ str(brzinaY)+ ", " + str(brzinaStaraX)+", "+str(brzinaStaraY)  + ", " + str(float(playerX)) + ", " + str(float(playerY)) + ", " + str(float(dt)) + "\n"))
-
-                        print(brzinaStaraX,brzinaStaraY)
-                        brzinaStaraX=brzinaX
-                        brzinaStaraY=brzinaY
-                        print(brzinaStaraX,brzinaY)
 if __name__ == '__main__':
         main()
         pygame.quit()
