@@ -20,10 +20,6 @@ def Unos(lista_instrukcija, brzinaStaraX,brzinaStaraY,playerX, playerY):
     volan = str(VolanStepen)
 
 
-    f.write((gas + ", " + kocnica + ", " + volan + "\t" + str(brzinaX) + ", " + str(
-        brzinaY) + ", " + ", " + str(brzinaStaraX) + ", " + str(brzinaStaraY) + ", " + ", " + str(
-        float(playerX)) + ", " + str(float(playerY)) + ", " + str(float(dt)) + "\n"))
-    print((gas + ", " + kocnica + ", " + volan + "\t" + str(brzinaX) + ", " + str(brzinaY) + ", " + str(
-        brzinaStaraX) + ", " + str(brzinaStaraY) + ", " + str(float(playerX)) + ", " + str(
-        float(playerY)) + ", " + str(float(dt)) + "\n"))
+    f.write((gas + ", " + kocnica + ", " + volan + "\t" + str(brzinaX) + ", " + str(brzinaY) + ", " + ", " + str(brzinaStaraX) + ", " + str(brzinaStaraY) + ", " + ", " + str(float(playerX)) + ", " + str(float(playerY)) + ", " + str(float(dt)) + "\n"))
+    print((gas + ", " + kocnica + ", " + volan + "\t" + str(brzinaX) + ", " + str(brzinaY) + ", " + str(brzinaStaraX) + ", " + str(brzinaStaraY) + ", " + str(float(playerX)) + ", " + str(float(playerY)) + ", " + str(float(dt)) + "\n"))
     return Xx, Xy, brzinaX, brzinaY
