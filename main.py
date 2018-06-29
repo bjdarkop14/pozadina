@@ -110,10 +110,9 @@ def main():
             if event.type == pygame.QUIT:
                 done = True
             if event.type == pygame.USEREVENT:
-                if Broji(a) == ix + 1:
-                    done == True
+                if ix == 48:
+                    done = True
                 else:
-                    print(ix)
                     Xx, Xy, brzinaX, brzinaY = Unos(a[x], brzinaStaraX, brzinaStaraY, playerX, playerY)
                     print(Xx, Xy, brzinaX, brzinaY)
                     pygame.draw.rect(screen, My_light_red_color, Xx, Xy)
