@@ -1,8 +1,6 @@
 import math
 from Kretanje import *
 
-
-
 def Unos(instrukcija, brzinaStaraX,brzinaStaraY,playerX, playerY):
     f = open("podaci.txt", "a")
     dt = 10
@@ -17,8 +15,6 @@ def Unos(instrukcija, brzinaStaraX,brzinaStaraY,playerX, playerY):
     gas = str(Gas)
     kocnica = str(Kocnica)
     volan = str(VolanStepen)
-
-
-    f.write((gas + ", " + kocnica + ", " + volan + "\t" + str(int(brzinaX)) + ", " + str(int(brzinaY)) + ", " + str(int(brzinaStaraX)) + ", " + str(int(brzinaStaraY)) + ", " + str(int(playerX)) + ", " + str(int(playerY)) + ", " + str(int(Ax)) + str(int(Ay)) + "\n"))
-    print((gas + ", " + kocnica + ", " + volan + "\t" + str(int(brzinaX)) + ", " + str(int(brzinaY)) + ", " + str(int(brzinaStaraX)) + ", " + str(int(brzinaStaraY)) + ", "  + str(int(playerX)) + ", " + str(int(playerY)) + ", " + str(int(Ax)) + str(int(Ay)) + "\n"))
+    f.write((gas + ", " + kocnica + ", " + volan + "\t" + str(int(brzinaX)) + ", " + str(int(brzinaY)) + ", " + str(int(brzinaStaraX)) + ", " + str(int(brzinaStaraY)) + ", " + str(int(playerX)) + ", " + str(int(playerY)) + ", " + str(int(Ax)) +", " + str(int(Ay)) + "\n"))
+    print((gas + ", " + kocnica + ", " + volan + "\t" + str(int(brzinaX)) + ", " + str(int(brzinaY)) + ", " + str(int(brzinaStaraX)) + ", " + str(int(brzinaStaraY)) + ", "  + str(int(playerX)) + ", " + str(int(playerY)) + ", " + str(int(Ax)) + ", " + str(int(Ay)) + "\n"))
     return Xx, Xy, brzinaX, brzinaY

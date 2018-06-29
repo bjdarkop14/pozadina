@@ -33,7 +33,7 @@ pygame.display.flip()
 def main():
     f = open("podaci.txt", "w")
     f.write('')
-    f.write("gas, kocnica, volan \t brzinaX, brzinaY, Ax, Ay  \n")
+    f.write("gas, kocnica, volan \t brzinaX, brzinaY, brzinaStaraX, BrzinaStaraY, playerX, playerY, Ax, Ay  \n")
     f.close()
     a = [[50, 0, 90], [0, 0, 90], [12, 4, 90],
          [90, 40, 90], [40, 80, 90], [20, 40, 90],
