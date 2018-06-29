@@ -3,8 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="9ca11833-d303-443b-a51a-15acea8c1299" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Broj_Instrukcija.py" afterPath="$PROJECT_DIR$/Broj_Instrukcija.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Unos.py" afterPath="$PROJECT_DIR$/Unos.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main.py" afterPath="$PROJECT_DIR$/main.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/podaci.txt" afterPath="$PROJECT_DIR$/podaci.txt" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -18,61 +20,69 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="Unos.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Unos.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="116">
-              <caret line="10" column="4" lean-forward="false" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
-              <folding>
-                <element signature="e#0#11#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="main.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/main.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="112">
-              <caret line="112" column="42" lean-forward="true" selection-start-line="112" selection-start-column="42" selection-end-line="112" selection-end-column="42" />
-              <folding>
-                <element signature="e#0#13#0" expanded="true" />
-                <element signature="e#2377#2473#0" expanded="false" />
-                <element signature="e#2515#2638#0" expanded="false" />
-                <element signature="e#2680#2803#0" expanded="false" />
-                <element signature="e#2845#2968#0" expanded="false" />
-                <element signature="e#3010#3133#0" expanded="false" />
-                <element signature="e#3175#3297#0" expanded="false" />
-                <element signature="e#3339#3461#0" expanded="false" />
-                <element signature="e#3503#3626#0" expanded="false" />
-                <element signature="e#3668#3791#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Broj_Instrukcija.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Broj_Instrukcija.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="21" selection-end-column="15" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Kretanje.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Kretanje.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="17" column="17" lean-forward="false" selection-start-line="17" selection-start-column="17" selection-end-line="17" selection-end-column="17" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <splitter split-orientation="horizontal" split-proportion="0.5">
+      <split-first>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
+          <file leaf-file-name="main.py" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/main.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="176">
+                  <caret line="35" column="64" lean-forward="false" selection-start-line="35" selection-start-column="64" selection-end-line="35" selection-end-column="64" />
+                  <folding>
+                    <element signature="e#0#13#0" expanded="true" />
+                    <element signature="e#2795#2891#0" expanded="false" />
+                    <element signature="e#2933#3056#0" expanded="false" />
+                    <element signature="e#3098#3221#0" expanded="false" />
+                    <element signature="e#3263#3386#0" expanded="false" />
+                    <element signature="e#3428#3551#0" expanded="false" />
+                    <element signature="e#3593#3715#0" expanded="false" />
+                    <element signature="e#3757#3879#0" expanded="false" />
+                    <element signature="e#3921#4044#0" expanded="false" />
+                    <element signature="e#4086#4209#0" expanded="false" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="Broj_Instrukcija.py" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/Broj_Instrukcija.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="462">
+                  <caret line="21" column="43" lean-forward="false" selection-start-line="21" selection-start-column="43" selection-end-line="21" selection-end-column="43" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="Kretanje.py" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/Kretanje.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="374">
+                  <caret line="17" column="17" lean-forward="false" selection-start-line="17" selection-start-column="17" selection-end-line="17" selection-end-column="17" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf>
+          <file leaf-file-name="Unos.py" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/Unos.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="358">
+                  <caret line="21" column="264" lean-forward="false" selection-start-line="21" selection-start-column="264" selection-end-line="21" selection-end-column="264" />
+                  <folding>
+                    <element signature="e#0#11#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -497,15 +507,15 @@
           <caret line="79" column="85" lean-forward="true" selection-start-line="71" selection-start-column="85" selection-end-line="79" selection-end-column="85" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
-            <element signature="e#2377#2473#0" expanded="false" />
-            <element signature="e#2515#2638#0" expanded="false" />
-            <element signature="e#2680#2803#0" expanded="false" />
-            <element signature="e#2845#2968#0" expanded="false" />
-            <element signature="e#3010#3133#0" expanded="false" />
-            <element signature="e#3175#3297#0" expanded="false" />
-            <element signature="e#3339#3461#0" expanded="false" />
-            <element signature="e#3503#3626#0" expanded="false" />
-            <element signature="e#3668#3791#0" expanded="false" />
+            <element signature="e#2795#2891#0" expanded="false" />
+            <element signature="e#2933#3056#0" expanded="false" />
+            <element signature="e#3098#3221#0" expanded="false" />
+            <element signature="e#3263#3386#0" expanded="false" />
+            <element signature="e#3428#3551#0" expanded="false" />
+            <element signature="e#3593#3715#0" expanded="false" />
+            <element signature="e#3757#3879#0" expanded="false" />
+            <element signature="e#3921#4044#0" expanded="false" />
+            <element signature="e#4086#4209#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -542,15 +552,15 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
-            <element signature="e#2377#2473#0" expanded="false" />
-            <element signature="e#2515#2638#0" expanded="false" />
-            <element signature="e#2680#2803#0" expanded="false" />
-            <element signature="e#2845#2968#0" expanded="false" />
-            <element signature="e#3010#3133#0" expanded="false" />
-            <element signature="e#3175#3297#0" expanded="false" />
-            <element signature="e#3339#3461#0" expanded="false" />
-            <element signature="e#3503#3626#0" expanded="false" />
-            <element signature="e#3668#3791#0" expanded="false" />
+            <element signature="e#2795#2891#0" expanded="false" />
+            <element signature="e#2933#3056#0" expanded="false" />
+            <element signature="e#3098#3221#0" expanded="false" />
+            <element signature="e#3263#3386#0" expanded="false" />
+            <element signature="e#3428#3551#0" expanded="false" />
+            <element signature="e#3593#3715#0" expanded="false" />
+            <element signature="e#3757#3879#0" expanded="false" />
+            <element signature="e#3921#4044#0" expanded="false" />
+            <element signature="e#4086#4209#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -569,15 +579,15 @@
           <caret line="21" column="18" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
-            <element signature="e#2377#2473#0" expanded="false" />
-            <element signature="e#2515#2638#0" expanded="false" />
-            <element signature="e#2680#2803#0" expanded="false" />
-            <element signature="e#2845#2968#0" expanded="false" />
-            <element signature="e#3010#3133#0" expanded="false" />
-            <element signature="e#3175#3297#0" expanded="false" />
-            <element signature="e#3339#3461#0" expanded="false" />
-            <element signature="e#3503#3626#0" expanded="false" />
-            <element signature="e#3668#3791#0" expanded="false" />
+            <element signature="e#2795#2891#0" expanded="false" />
+            <element signature="e#2933#3056#0" expanded="false" />
+            <element signature="e#3098#3221#0" expanded="false" />
+            <element signature="e#3263#3386#0" expanded="false" />
+            <element signature="e#3428#3551#0" expanded="false" />
+            <element signature="e#3593#3715#0" expanded="false" />
+            <element signature="e#3757#3879#0" expanded="false" />
+            <element signature="e#3921#4044#0" expanded="false" />
+            <element signature="e#4086#4209#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -655,16 +665,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Broj_Instrukcija.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="21" selection-end-column="15" />
+        <state relative-caret-position="462">
+          <caret line="21" column="43" lean-forward="false" selection-start-line="21" selection-start-column="43" selection-end-line="21" selection-end-column="43" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Unos.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="116">
-          <caret line="10" column="4" lean-forward="false" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
+        <state relative-caret-position="358">
+          <caret line="21" column="264" lean-forward="false" selection-start-line="21" selection-start-column="264" selection-end-line="21" selection-end-column="264" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
           </folding>
@@ -673,19 +683,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="112" column="42" lean-forward="true" selection-start-line="112" selection-start-column="42" selection-end-line="112" selection-end-column="42" />
+        <state relative-caret-position="176">
+          <caret line="35" column="64" lean-forward="false" selection-start-line="35" selection-start-column="64" selection-end-line="35" selection-end-column="64" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
-            <element signature="e#2377#2473#0" expanded="false" />
-            <element signature="e#2515#2638#0" expanded="false" />
-            <element signature="e#2680#2803#0" expanded="false" />
-            <element signature="e#2845#2968#0" expanded="false" />
-            <element signature="e#3010#3133#0" expanded="false" />
-            <element signature="e#3175#3297#0" expanded="false" />
-            <element signature="e#3339#3461#0" expanded="false" />
-            <element signature="e#3503#3626#0" expanded="false" />
-            <element signature="e#3668#3791#0" expanded="false" />
+            <element signature="e#2795#2891#0" expanded="false" />
+            <element signature="e#2933#3056#0" expanded="false" />
+            <element signature="e#3098#3221#0" expanded="false" />
+            <element signature="e#3263#3386#0" expanded="false" />
+            <element signature="e#3428#3551#0" expanded="false" />
+            <element signature="e#3593#3715#0" expanded="false" />
+            <element signature="e#3757#3879#0" expanded="false" />
+            <element signature="e#3921#4044#0" expanded="false" />
+            <element signature="e#4086#4209#0" expanded="false" />
           </folding>
         </state>
       </provider>

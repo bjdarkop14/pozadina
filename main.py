@@ -6,6 +6,7 @@ import math
 import random
 pygame.init()
 
+
 clock = pygame.time.Clock()     # load clock
 
 
@@ -30,6 +31,10 @@ screen.blit(black_square_that_is_the_size_of_the_screen, (0, 0))
 pygame.display.flip()
 
 def main():
+    f = open("podaci.txt", "w")
+    f.write('')
+    f.write("gas, kocnica, volan \t brzinaX, brzinaY, Ax, Ay  \n")
+    f.close()
     a = [[50, 0, 90], [0, 0, 90], [12, 4, 90],
          [90, 40, 90], [40, 80, 90], [20, 40, 90],
          [90, 5, 90], [0, 0, 90], [0, 12, 90],
@@ -44,6 +49,12 @@ def main():
          [0, 0, 45], [0, 0, 45], [0, 0, 45],
          [0, 0, 45], [0, 0, 45], [0, 0, 45],
          [0, 0, 45], [0, 0, 45], [0, 0, 45],
+         [45, 0, 90], [45, 0, 90], [45, 0, 90],
+         [45, 0, 90], [45, 0, 90], [45, 0, 90],
+         [45, 0, 90], [45, 0, 90], [45, 0, 90],
+         [45, 0, 90], [45, 0, 90], [45, 0, 90],
+         [45, 0, 90], [45, 0, 90], [45, 0, 90],
+         [45, 0, 90], [45, 0, 90], [45, 0, 90],
          [45, 0, 90], [45, 0, 90], [45, 0, 90],
          [45, 0, 90], [45, 0, 90], [45, 0, 90]]
     done = False
@@ -109,18 +120,16 @@ def main():
             if event.type == pygame.QUIT:
                 done = True
             if event.type == pygame.USEREVENT:
-                if ix == 47:
-                    pygame.time.wait(5000)
+                if ix == 65:
+                    pygame.time.delay(5000)
                 else:
                     Xx, Xy, brzinaX, brzinaY = Unos(a[ix], brzinaStaraX, brzinaStaraY, playerX, playerY)
-                    print(Xx, Xy, brzinaX, brzinaY)
                     Xx = int(Xx)
                     Xy = int(Xy)
                     pygame.draw.rect(screen, My_light_red_color, (Xx, Xy,4,4))
                     ix = ix + 1
                     brzinaStaraX = brzinaX
                     brzinaStaraY = brzinaY
-                    print(brzinaStaraX, brzinaY)
                     playerX = Xx
                     playerY = Xy
         pygame.display.flip()
