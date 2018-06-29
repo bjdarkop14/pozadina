@@ -6,7 +6,7 @@ def Brzina(brzinaStaraX, brzinaStaraY, Ax, Ay ,dt, X0x, X0y):
     if X0x == playerX and X0y == playerY:
         brzinaX = Ax * dt
         brzinaY = Ay * dt
-        return brzinaX,brzinaY
+        return brzinaX, brzinaY
     else:
         brzinaX = brzinaStaraX + Ax * dt
         brzinaY = brzinaStaraY + Ay * dt
@@ -21,6 +21,6 @@ def Sledeca_Pozicija(brzinaX, brzinaY, dt,  X0x, X0y):
 
     Xx = X0x + brzinaX * dt
     Xy = X0y - brzinaY * dt
-    return Xx,Xy
+    return Xx, Xy
 
 

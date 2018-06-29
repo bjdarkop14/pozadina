@@ -4,22 +4,20 @@ from Kretanje import *
 f = open("podaci.txt", "w")
 f.write('')
 
-def Unos(brzinaStaraX,brzinaStaraY,playerX, playerY):
-    dt = 0.01
-    gas = input("Unesi gas: ")
-    print(gas)
-    Gas = float(gas)
-    kocnica = input("Unesi kocnicu: ")
-    print(kocnica)
-    Kocnica = float(kocnica)
-    volan = input("Unesi volan")
-    print(volan)
-    VolanStepen = float(volan)
+def Unos(lista_instrukcija, brzinaStaraX,brzinaStaraY,playerX, playerY):
+    dt = 10
+    for instrukcija in lista_instrukcija:
+        Gas = instrukcija[0]
+        Kocnica = instrukcija[1]
+        VolanStepen = instrukcija[2]
     VolanRadian = math.radians(VolanStepen)
     Ax, Ay = Ubrzanje(Gas, Kocnica, VolanRadian)
     brzinaX, brzinaY = Brzina(brzinaStaraX, brzinaStaraY, Ax, Ay, dt, playerX, playerY)
     Xx, Xy = Sledeca_Pozicija(brzinaX, brzinaY, dt, playerX, playerY)
 
+    gas = str(Gas)
+    kocnica = str(Kocnica)
+    volan = str(VolanStepen)
 
 
     f.write((gas + ", " + kocnica + ", " + volan + "\t" + str(brzinaX) + ", " + str(
