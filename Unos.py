@@ -4,12 +4,11 @@ from Kretanje import *
 f = open("podaci.txt", "w")
 f.write('')
 
-def Unos(lista_instrukcija, brzinaStaraX,brzinaStaraY,playerX, playerY):
+def Unos(instrukcija, brzinaStaraX,brzinaStaraY,playerX, playerY):
     dt = 10
-    for instrukcija in lista_instrukcija:
-        Gas = instrukcija[0]
-        Kocnica = instrukcija[1]
-        VolanStepen = instrukcija[2]
+    Gas = instrukcija[0]
+    Kocnica = instrukcija[1]
+    VolanStepen = instrukcija[2]
     VolanRadian = math.radians(VolanStepen)
     Ax, Ay = Ubrzanje(Gas, Kocnica, VolanRadian)
     brzinaX, brzinaY = Brzina(brzinaStaraX, brzinaStaraY, Ax, Ay, dt, playerX, playerY)

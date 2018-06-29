@@ -1,5 +1,4 @@
 import pygame
-from Broj_Instrukcija import *
 from Kretanje import *
 from Unos import  *
 import time
@@ -110,13 +109,15 @@ def main():
             if event.type == pygame.QUIT:
                 done = True
             if event.type == pygame.USEREVENT:
-                if ix == 48:
-                    done = True
+                if ix == 47:
+                    pygame.time.wait(5000)
                 else:
-                    Xx, Xy, brzinaX, brzinaY = Unos(a[x], brzinaStaraX, brzinaStaraY, playerX, playerY)
+                    Xx, Xy, brzinaX, brzinaY = Unos(a[ix], brzinaStaraX, brzinaStaraY, playerX, playerY)
                     print(Xx, Xy, brzinaX, brzinaY)
-                    pygame.draw.rect(screen, My_light_red_color, Xx, Xy)
-                    ix += 1
+                    Xx = int(Xx)
+                    Xy = int(Xy)
+                    pygame.draw.rect(screen, My_light_red_color, (Xx, Xy,4,4))
+                    ix = ix + 1
                     brzinaStaraX = brzinaX
                     brzinaStaraY = brzinaY
                     print(brzinaStaraX, brzinaY)
