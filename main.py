@@ -9,7 +9,6 @@ pygame.init()
 clock = pygame.time.Clock()     # load clock
 
 
-# pygame.time.set_timer(pygame.USEREVENT1,60)
 pygame.time.set_timer(pygame.USEREVENT,10)
 
 button = pygame.Rect(160, 450, 140, 32)
@@ -65,7 +64,7 @@ def main():
     player = pygame.Rect((playerX, playerY, 4, 4))  # pocetna pozicija igraca
     pygame.draw.rect(screen, My_light_red_color, player)
     pygame.display.update()
-    index = 0
+    x = 0
 # pygame.mouse.set_visible(False)
     while not done:
 
@@ -107,17 +106,17 @@ def main():
                 x = x + 15
                 y = y - 30
                 pygame.draw.rect(screen, My_light_blue_color, (x, y, x_size, y_size))
-
         pygame.display.flip()
 
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 done = True
             if event.type == pygame.USEREVENT:
-                Xx, Xy, brzinaX, brzinaY = Unos(a.index(), brzinaStaraX, brzinaStaraY, playerX, playerY)
+                print(a[x])
+                Xx, Xy, brzinaX, brzinaY = Unos(a[x], brzinaStaraX, brzinaStaraY, playerX, playerY)
                 print(Xx, Xy, brzinaX, brzinaY)
                 pygame.draw.rect(screen, My_light_red_color, Xx, Xy)
-                index += 1
+                x += 1
                 brzinaStaraX = brzinaX
                 brzinaStaraY = brzinaY
                 print(brzinaStaraX, brzinaY)
