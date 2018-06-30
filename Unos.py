@@ -3,7 +3,7 @@ from Kretanje import *
 
 def Unos(instrukcija, brzinaStaraX,brzinaStaraY,playerX, playerY):
     f = open("podaci.txt", "a")
-    dt = 0.1
+    dt = 7
     Gas = instrukcija[0]
     Kocnica = instrukcija[1]
     VolanStepen = instrukcija[2]

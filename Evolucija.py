@@ -4,5 +4,4 @@ from deap import creator
 from deap import tools
 from Inizijalizacija import Inizijalizacija
 
-
-print(Inizijalizacija(2))
+# print(Inizijalizacija(1))

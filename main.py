@@ -4,6 +4,7 @@ from Unos import  *
 import time
 import math
 import random
+from Inizijalizacija import Inizijalizacija
 pygame.init()
 
 
@@ -46,12 +47,16 @@ def main():
     player = pygame.Rect((playerX, playerY, 4, 4))  # pocetna pozicija igraca
     pygame.draw.rect(screen, My_light_red_color, player)
     pygame.display.update()
+    ix = 0
+    Skretanje = []
 # pygame.mouse.set_visible(False)
     while not done:
 
         # generisanje random mape
         while y > 0:
             q = random.randint(0, 8)  # bira da li ce ici levo ili desno(0 - levo, 1 - desno
+            Skretanje[ix] = Inizijalizacija(q)
+            ix += 1
             if q == 0:
                 y = y - 30
                 pygame.draw.rect(screen, My_light_blue_color, (x, y, x_size, y_size))
@@ -88,15 +93,12 @@ def main():
                 y = y - 30
                 pygame.draw.rect(screen, My_light_blue_color, (x, y, x_size, y_size))
         pygame.display.flip()
-
+        kk = 0
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 done = True
             if event.type == pygame.USEREVENT:
-                if ix == 65:
-                    pygame.time.delay(5000)
-                else:
-                    Xx, Xy, brzinaX, brzinaY = Unos( brzinaStaraX, brzinaStaraY, playerX, playerY)
+                    Xx, Xy, brzinaX, brzinaY = Unos(Skretanje[kk], brzinaStaraX, brzinaStaraY, playerX, playerY)
                     Xx = int(Xx)
                     Xy = int(Xy)
                     pygame.draw.rect(screen, My_light_red_color, (Xx, Xy,4,4))
