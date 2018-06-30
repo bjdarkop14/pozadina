@@ -31,32 +31,6 @@ screen.blit(black_square_that_is_the_size_of_the_screen, (0, 0))
 pygame.display.flip()
 
 def main():
-    f = open("podaci.txt", "w")
-    f.write('')
-    f.write("gas, kocnica, volan \t brzinaX, brzinaY, brzinaStaraX, BrzinaStaraY, playerX, playerY, Ax, Ay  \n")
-    f.close()
-    a = [[100, 0, 0], [100, 0, 0], [100, 0, 0],
-         [100, 0, 0], [100, 0, 0], [100, 0, 0],
-         [100, 0, 0], [100, 0, 0], [100, 0, 0],
-         [100, 0, 0], [100, 0, 0], [100, 0, 0],
-         [100, 0, 0], [45, 21, 0], [0, 0, 0],
-         [0, 0, 0], [0, 0, 0], [0, 0, 0],
-         [0, 0, 0], [0, 0, 0], [0, 0, 0],
-         [10, 0, 0], [0, 10, 0], [0, 0, 0],
-         [0, 0, 0], [0, 0, 0], [0, 0, 0],
-         [25, 8, 90], [45, 0, 90], [60, 0, 90],
-         [90, 12, 90], [45, 0, 45], [0, 0, 45],
-         [0, 0, 45], [0, 0, 45], [0, 0, 45],
-         [0, 0, 45], [0, 0, 45], [0, 0, 45],
-         [0, 0, 45], [0, 0, 45], [0, 0, 45],
-         [45, 0, 90], [45, 0, 90], [45, 0, 90],
-         [45, 0, 90], [45, 0, 90], [45, 0, 90],
-         [45, 0, 90], [45, 0, 90], [45, 0, 90],
-         [45, 0, 90], [45, 0, 90], [45, 0, 90],
-         [45, 0, 90], [45, 0, 90], [45, 0, 90],
-         [45, 0, 90], [45, 0, 90], [45, 0, 90],
-         [45, 0, 90], [45, 0, 90], [45, 0, 90],
-         [45, 0, 90], [45, 0, 90], [45, 0, 90]]
     done = False
     brzinaStaraX = 0
     brzinaStaraY = 0
@@ -72,7 +46,6 @@ def main():
     player = pygame.Rect((playerX, playerY, 4, 4))  # pocetna pozicija igraca
     pygame.draw.rect(screen, My_light_red_color, player)
     pygame.display.update()
-    ix = 0
 # pygame.mouse.set_visible(False)
     while not done:
 
@@ -123,11 +96,10 @@ def main():
                 if ix == 65:
                     pygame.time.delay(5000)
                 else:
-                    Xx, Xy, brzinaX, brzinaY = Unos(a[ix], brzinaStaraX, brzinaStaraY, playerX, playerY)
+                    Xx, Xy, brzinaX, brzinaY = Unos( brzinaStaraX, brzinaStaraY, playerX, playerY)
                     Xx = int(Xx)
                     Xy = int(Xy)
                     pygame.draw.rect(screen, My_light_red_color, (Xx, Xy,4,4))
-                    ix = ix + 1
                     brzinaStaraX = brzinaX
                     brzinaStaraY = brzinaY
                     playerX = Xx
