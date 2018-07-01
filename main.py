@@ -49,15 +49,15 @@ def main():
     pygame.draw.rect(screen, My_light_red_color, player)
     pygame.display.update()
     ix = 0
-    Skretanje = []
+    Skretanje = [0]*50
 # pygame.mouse.set_visible(False)
     while not done:
 
         # generisanje random mape
         while y > 0:
-            q = random.randint(0, 8)  # bira da li ce ici levo ili desno(0 - levo, 1 - desno
+            q = random.randint(0, 9)  # bira da li ce ici levo ili desno(0 - levo, 1 - desno
             Skretanje[ix] = q
-            ix += 1
+            ix+=1
             if q == 0:
                 y = y - 30
                 pygame.draw.rect(screen, My_light_blue_color, (x, y, x_size, y_size))

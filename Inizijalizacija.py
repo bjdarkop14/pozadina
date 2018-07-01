@@ -1,8 +1,8 @@
 import random
 def Inizijalizacija(Skretanje):
-    a = [0] * 24
+    a = [0] * 12
     for i in range(0, 12):
-        a[i] = a[0]*3
+        a[i] = [0]*3
     for i in range(0, 12):
         if Skretanje[i] == 0:
             a[i][0] = random.randint(0, 100)

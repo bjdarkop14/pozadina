@@ -27,15 +27,15 @@ class Simulacija:
 
         Xx = X0x + brzinaX * dt
         Xy = X0y - brzinaY * dt
-        return Xx,Xy
+        return Xx, Xy
 
     def Trci(self):
-        dt = 7
+        dt = 1
         brzinaStaraX = 0
         brzinaStaray = 0
         X0x = 170
         X0y = 360
-        for i in self.Niz_Instrukcija:
+        for i in range(0,12):
             Ax, Ay = self.Ubrzanje(i)
             brzinaX, brzinaY  = self.Brzina(brzinaStaraX, brzinaStaray, Ax, Ay, dt)
             Xx, Xy = self.Sledeca_Pozicija(brzinaX, brzinaY, dt, X0x, X0y)
