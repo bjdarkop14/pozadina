@@ -41,4 +41,6 @@ class Simulacija:
             Xx, Xy = self.Sledeca_Pozicija(brzinaX, brzinaY, dt, X0x, X0y)
             X0x = Xx
             X0y = Xy
-            
+            print(str(self.Niz_Instrukcija[i][0]) + ", " + str(self.Niz_Instrukcija[i][1]) +", " +  str(self.Niz_Instrukcija[i][2]) +
+                  ", " + str(X0x) + ", " + str(X0y) + ", " + str(Xx) + ", " + str(Xy) + ", " + str(brzinaX) +", " + str(brzinaY) +
+                  ", " + str(Ax) + ", " + str(Ay))
