@@ -1,5 +1,4 @@
 import math
-
 def Brzina(brzinaStaraX, brzinaStaraY, Ax, Ay ,dt, X0x, X0y):
     if X0x == 194 and X0y == 375:
         brzinaX = Ax * dt

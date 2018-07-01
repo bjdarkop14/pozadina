@@ -98,14 +98,14 @@ def main():
             if event.type == pygame.QUIT:
                 done = True
             if event.type == pygame.USEREVENT:
-                    Xx, Xy, brzinaX, brzinaY = Unos(Skretanje[kk], brzinaStaraX, brzinaStaraY, playerX, playerY)
-                    Xx = int(Xx)
-                    Xy = int(Xy)
-                    pygame.draw.rect(screen, My_light_red_color, (Xx, Xy,4,4))
-                    brzinaStaraX = brzinaX
-                    brzinaStaraY = brzinaY
-                    playerX = Xx
-                    playerY = Xy
+                Xx, Xy, brzinaX, brzinaY = Unos(Skretanje[kk], brzinaStaraX, brzinaStaraY, playerX, playerY)
+                Xx = int(Xx)
+                Xy = int(Xy)
+                pygame.draw.rect(screen, My_light_red_color, (Xx, Xy,4,4))
+                brzinaStaraX = brzinaX
+                brzinaStaraY = brzinaY
+                playerX = Xx
+                playerY = Xy
         pygame.display.flip()
 
 if __name__ == '__main__':
