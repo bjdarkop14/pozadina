@@ -1,47 +1,44 @@
 import random
 import math
+import pygame
 from Inizijalizacija import Inizijalizacija
-class Jedinka:
-    def __init__(jedinka):
-        for i in range(0, 24):
-            jedinka[i] = Inizijalizacija(random.randint(0,9))
-            jedinka[i].Gas = Jedinka.VratiGas(jedinka[i])
-            jedinka[i].Kocnica = Jedinka.VratiKOcnicu(jedinka[i])
-            jedinka[i].Volan = Jedinka.VratiVolan(jedinka[i])
-
-    def Brzina(jedinka,brzinaStaraX, brzinaStaraY, Ax, Ay, dt, X0x, X0y):
-        if X0x == 194 and X0y == 375:
-            brzinaX = Ax * dt
-            brzinaY = Ay * dt
-            return brzinaX, brzinaY
-        else:
-            brzinaX = brzinaStaraX + Ax * dt
-            brzinaY = brzinaStaraY + Ay * dt
-            return brzinaX, brzinaY
-
-    def Ubrzanje(Jedinka):
-        Jedinka.Ax = (Gas - Kocnica) * math.cos(Volan)
-        Jedinka.Ay = (Gas - Kocnica) * math.sin(Volan)
+class Simulacija:
+    def __init__(self, Niz_Instrukcija):
+        self.Niz_Instrukcija = Niz_Instrukcija
 
 
-    def Sledeca_Pozicija(Jedinka, brzinaX, brzinaY, dt, X0x, X0y):
-
-        Jedinka.Xx = X0x + brzinaX * dt
-        Jedinka.Xy = X0y - brzinaY * dt
-
-
-    def VratiGas(self, instrukcija):
-        for i in instrukcija:
+    def Brzina(self, brzinaStaraX, brzinaStaraY, Ax, Ay, dt):
+        for i in self.Niz_Instrukcija:
             if i == 0:
-                return instrukcija[0]
+                brzinaX = Ax * dt
+                brzinaY = Ay * dt
+                return brzinaX, brzinaY
+            else:
+                brzinaX = brzinaStaraX + Ax * dt
+                brzinaY = brzinaStaraY + Ay * dt
+                return brzinaX, brzinaY
 
-    def VratiKOcnicu(self,instrukcija):
-        for i in  instrukcija:
-            if i == 1:
-                return instrukcija[1]
-    def VratiVolan(self, instrukcija):
-        for i in instrukcija:
-            if i == 2:
-                return instrukcija[2]
+    def Ubrzanje(self, i):
+        Ax = (self.Niz_Instrukcija[i][0] - self.Niz_Instrukcija[i][1]) * math.cos(math.radians(self.Niz_Instrukcija[i][2]))
+        Ay = (self.Niz_Instrukcija[i][0] - self.Niz_Instrukcija[i][1]) * math.sin(math.radians(self.Niz_Instrukcija[i][2]))
+        return Ax, Ay
 
-    def Trci(self, ):
+    def Sledeca_Pozicija(self, brzinaX, brzinaY, dt, X0x, X0y):
+
+        Xx = X0x + brzinaX * dt
+        Xy = X0y - brzinaY * dt
+        return Xx,Xy
+
+    def Trci(self):
+        dt = 7
+        brzinaStaraX = 0
+        brzinaStaray = 0
+        X0x = 170
+        X0y = 360
+        for i in self.Niz_Instrukcija:
+            Ax, Ay = self.Ubrzanje(i)
+            brzinaX, brzinaY  = self.Brzina(brzinaStaraX, brzinaStaray, Ax, Ay, dt)
+            Xx, Xy = self.Sledeca_Pozicija(brzinaX, brzinaY, dt, X0x, X0y)
+            X0x = Xx
+            X0y = Xy
+            
