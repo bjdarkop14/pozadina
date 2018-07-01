@@ -5,6 +5,7 @@ import time
 import math
 import random
 from Inizijalizacija import Inizijalizacija
+from KlasaJedinka import *
 pygame.init()
 
 
@@ -55,7 +56,7 @@ def main():
         # generisanje random mape
         while y > 0:
             q = random.randint(0, 8)  # bira da li ce ici levo ili desno(0 - levo, 1 - desno
-            Skretanje[ix] = Inizijalizacija(q)
+            Skretanje[ix] = q
             ix += 1
             if q == 0:
                 y = y - 30
@@ -93,19 +94,16 @@ def main():
                 y = y - 30
                 pygame.draw.rect(screen, My_light_blue_color, (x, y, x_size, y_size))
         pygame.display.flip()
-        kk = 0
+
+        niz_instrukcija = Inizijalizacija(Skretanje)
+
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 done = True
-            if event.type == pygame.USEREVENT:
-                Xx, Xy, brzinaX, brzinaY = Unos(Skretanje[kk], brzinaStaraX, brzinaStaraY, playerX, playerY)
-                Xx = int(Xx)
-                Xy = int(Xy)
-                pygame.draw.rect(screen, My_light_red_color, (Xx, Xy,4,4))
-                brzinaStaraX = brzinaX
-                brzinaStaraY = brzinaY
-                playerX = Xx
-                playerY = Xy
+
+        sim = Simulacija(niz_instrukcija)
+        sim.Trci()
+
         pygame.display.flip()
 
 if __name__ == '__main__':
