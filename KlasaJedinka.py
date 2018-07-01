@@ -1,5 +1,6 @@
 import random
 import math
+import numpy
 import pygame
 from Inizijalizacija import Inizijalizacija
 class Simulacija:
@@ -37,10 +38,19 @@ class Simulacija:
         X0y = 360
         for i in range(0,12):
             Ax, Ay = self.Ubrzanje(i)
-            brzinaX, brzinaY  = self.Brzina(brzinaStaraX, brzinaStaray, Ax, Ay, dt)
+            brzinaX, brzinaY = self.Brzina(brzinaStaraX, brzinaStaray, Ax, Ay, dt)
             Xx, Xy = self.Sledeca_Pozicija(brzinaX, brzinaY, dt, X0x, X0y)
             X0x = Xx
             X0y = Xy
             print(str(self.Niz_Instrukcija[i][0]) + ", " + str(self.Niz_Instrukcija[i][1]) +", " +  str(self.Niz_Instrukcija[i][2]) +
                   ", " + str(X0x) + ", " + str(X0y) + ", " + str(Xx) + ", " + str(Xy) + ", " + str(brzinaX) +", " + str(brzinaY) +
                   ", " + str(Ax) + ", " + str(Ay))
+
+    def Fittness(self, Simulacija, XBloka, YBloka):
+        xX = numpy.array([XBloka,YBloka])
+        xY = numpy.array([XBloka+50, YBloka+30])
+        x0 = (xX + xY)/2
+        
+
+
+

@@ -100,9 +100,9 @@ def main():
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 done = True
-
-        sim = Simulacija(niz_instrukcija)
-        sim.Trci()
+        for i in range(0,1000):
+            sim = Simulacija(niz_instrukcija)
+            sim.Trci()
 
         pygame.display.flip()
 
