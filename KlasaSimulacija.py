@@ -42,13 +42,13 @@ class Simulacija:
             a = self.Ubrzanje(i)
             brzina = self.Brzina(StaraBrzina, a, dt)
             x = self.Sledeca_Pozicija(brzina, dt, x0)
-            Fit += self.Fittness(x, self.Blok[i][0], self.Blok[i][1])
-            print(str(self.Niz_Instrukcija[i][0]) + ", " + str(self.Niz_Instrukcija[i][1]) + ", " + str(self.Niz_Instrukcija[i][2])
-                  + ", " + str(x0) + ", " + str(x) + ", " + str(StaraBrzina ) + ", " + str(brzina) + ", " + str(a))
+            Fit += self.Fittness(x, self.Blok[i][0], self.Blok[i][1]) * self.Fittness(x, self.Blok[i][0], self.Blok[i][1])
+            # print(str(self.Niz_Instrukcija[i][0]) + ", " + str(self.Niz_Instrukcija[i][1]) + ", " + str(self.Niz_Instrukcija[i][2])
+            #       + ", " + str(x0) + ", " + str(x) + ", " + str(StaraBrzina ) + ", " + str(brzina) + ", " + str(a))
             x0 = x
             StaraBrzina = brzina
 
-        return Fit / 24
+        return numpy.sqrt((Fit / 24))
     def Fittness(self, x, XBloka, YBloka):
         x1 = numpy.array([XBloka, YBloka])
         x2 = numpy.array([XBloka+50, YBloka+30])

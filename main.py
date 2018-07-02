@@ -96,16 +96,17 @@ def main():
             Blok[ix] = numpy.array([x, y])
             ix += 1
         pygame.display.flip()
-
-        niz_instrukcija = Inizijalizacija(Skretanje)
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
-                print("Gas - Kocnica - Volan \t x0 - x - Brzina - Ubrzanje \n")
+                # print("Gas - Kocnica - Volan \t x0 - x - Brzina - Ubrzanje \n")
                 done = True
-                sim = Simulacija(niz_instrukcija, Blok)
-                Fittness = sim.Trci()
-                Fit = math.sqrt(Fittness[0]*Fittness[0]+Fittness[1]*Fittness[1])
-                print(Fit)
+                for i in range(0, 1000):
+                    niz_instrukcija = Inizijalizacija(Skretanje)
+                    sim = Simulacija(niz_instrukcija, Blok)
+                    Fittness = sim.Trci()
+                    Fit = math.sqrt(Fittness[0] * Fittness[0] + Fittness[1] * Fittness[1])
+                    # print(Fit)
+
         pygame.display.flip()
 
 if __name__ == '__main__':
