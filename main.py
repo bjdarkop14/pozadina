@@ -5,7 +5,7 @@ import time
 import math
 import random
 from Inizijalizacija import Inizijalizacija
-from KlasaJedinka import *
+from KlasaSimulacija import *
 pygame.init()
 
 
@@ -17,7 +17,7 @@ pygame.time.set_timer(pygame.USEREVENT,10)
 button = pygame.Rect(160, 450, 140, 32)
 
 APPLICATION_x_size = 500
-APPLICATION_y_size = 500
+APPLICATION_y_size = 800
 
 # a color can be: (0 to 255, 0 to 255, 0 to 255)
 My_light_blue_color = (190, 190, 255)
@@ -37,27 +37,27 @@ def main():
     brzinaStaraX = 0
     brzinaStaraY = 0
     start_x = 170  # x kordinata pocetnog bloka
-    start_y = 360  # y kordinata pocetnog bloka
+    start_y = 760  # y kordinata pocetnog bloka
     x_size = 50  # duzina bloka
     y_size = 30  # sirina bloka
     x = start_x
     y = start_y
     playerX = 194
-    playerY = 375
+    playerY = 775
     pygame.draw.rect(screen, My_light_blue_color, (x, y, x_size, y_size))  # prvi blok
     player = pygame.Rect((playerX, playerY, 4, 4))  # pocetna pozicija igraca
     pygame.draw.rect(screen, My_light_red_color, player)
     pygame.display.update()
     ix = 0
     Skretanje = [0]*50
+    Blok = [0]*50
 # pygame.mouse.set_visible(False)
     while not done:
 
         # generisanje random mape
-        while y > 0:
+        while ix < 24:
             q = random.randint(0, 9)  # bira da li ce ici levo ili desno(0 - levo, 1 - desno
             Skretanje[ix] = q
-            ix+=1
             if q == 0:
                 y = y - 30
                 pygame.draw.rect(screen, My_light_blue_color, (x, y, x_size, y_size))
@@ -93,17 +93,19 @@ def main():
                 x = x + 15
                 y = y - 30
                 pygame.draw.rect(screen, My_light_blue_color, (x, y, x_size, y_size))
+            Blok[ix] = numpy.array([x, y])
+            ix += 1
         pygame.display.flip()
 
         niz_instrukcija = Inizijalizacija(Skretanje)
-
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
+                print("Gas - Kocnica - Volan \t x0 - x - Brzina - Ubrzanje \n")
                 done = True
-        for i in range(0,1000):
-            sim = Simulacija(niz_instrukcija)
-            sim.Trci()
-
+                sim = Simulacija(niz_instrukcija, Blok)
+                Fittness = sim.Trci()
+                Fit = math.sqrt(Fittness[0]*Fittness[0]+Fittness[1]*Fittness[1])
+                print(Fit)
         pygame.display.flip()
 
 if __name__ == '__main__':
