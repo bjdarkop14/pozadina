@@ -3,6 +3,11 @@ import math
 import numpy
 import pygame
 from Inizijalizacija import Inizijalizacija
+
+def Fit(UkupanFitness):
+    return math.sqrt(UkupanFitness[0] * UkupanFitness[0] + UkupanFitness[1] * UkupanFitness[1])  # Odstupanje
+
+
 class Simulacija:
     def __init__(self, Niz_Instrukcija, Blok):
         self.Niz_Instrukcija = Niz_Instrukcija
@@ -54,18 +59,4 @@ class Simulacija:
         x2 = numpy.array([XBloka+50, YBloka+30])
         x0 = (x1 + x2)/2
         return numpy.sqrt(((x0-x)*(x0-x)))          #Vraca Euklitsku distancu
-
-    #Sort Jedinki da bi se izuvkle jedinke sa najboljim Fitnessom
-    def Sort(self, Niz_Fitnessa, Niz_Jedinki):
-        for passnum in range(len(Niz_Fitnessa) - 1, 0, -1):
-            for i in range(passnum):
-                if Niz_Fitnessa[i] < Niz_Fitnessa[i + 1]:
-                    temp = Niz_Fitnessa[i]
-                    k = Niz_Jedinki[i]
-                    Niz_Fitnessa[i] = Niz_Fitnessa[i + 1]
-                    Niz_Jedinki[i] = Niz_Jedinki[i+1]
-                    Niz_Fitnessa[i + 1] = temp
-                    Niz_Jedinki[i+1] = k
-        return Niz_Jedinki, Niz_Fitnessa
-
 
