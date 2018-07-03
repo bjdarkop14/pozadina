@@ -95,6 +95,8 @@ def main():
                 pygame.draw.rect(screen, My_light_blue_color, (x, y, x_size, y_size))
             Blok[ix] = numpy.array([x, y])
             ix += 1
+            sim = []
+            FitNiz = []
         pygame.display.flip()
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -102,10 +104,11 @@ def main():
                 done = True
                 for i in range(0, 1000):
                     niz_instrukcija = Inizijalizacija(Skretanje)
-                    sim = Simulacija(niz_instrukcija, Blok)
-                    Fittness = sim.Trci()
-                    Fit = math.sqrt(Fittness[0] * Fittness[0] + Fittness[1] * Fittness[1])
-                    # print(Fit)
+                    sim[i] = Simulacija(niz_instrukcija, Blok)
+                    Fittness = sim[i].Trci()
+                    Fit = math.sqrt(Fittness[0] * Fittness[0] + Fittness[1] * Fittness[1])  #Odstupanje
+                    FitNiz[i] = Fit
+                sim, FitNiz = sim.Sort()
 
         pygame.display.flip()
 
