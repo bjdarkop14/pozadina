@@ -104,12 +104,12 @@ def main():
             if event.type == pygame.QUIT:
                 # print("Gas - Kocnica - Volan \t x0 - x - Brzina - Ubrzanje \n")
                 done = True
-                for i in range(0, 1000):
-                    niz_instrukcija = Inizijalizacija(Skretanje)
-                    jedinka = Simulacija(niz_instrukcija, Blok)
-                    Niz_Jedinki.append(copy.copy(jedinka))
-                    Niz_Fitnessa.append(Fit(jedinka.Trci()))
-                Niz_Jedinki = Sort(Niz_Fitnessa, Niz_Jedinki)
+                for i in range(0, 1000):                #stvaram 1000 populacija jedinki
+                    niz_instrukcija = Inizijalizacija(Skretanje)                #Inicijalizujem random GKV
+                    jedinka = Simulacija(niz_instrukcija, Blok)                 #stvaram jedinku
+                    Niz_Jedinki.append(copy.copy(jedinka))                      #U Niz_Jedinki ubacujem jedinke
+                    Niz_Fitnessa.append(Fit(jedinka.Trci()))                    #U Niz Fitnessa ubacujem Fitness od jedinke
+                Niz_Jedinki = Sort(Niz_Fitnessa, Niz_Jedinki)                   #Na kraju sortiram Niz_Jedinki na osnovu Fitnesa
                 for i in range(0, 1000):
                     print(Niz_Jedinki[i])
         pygame.display.flip()
