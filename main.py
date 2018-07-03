@@ -2,13 +2,13 @@ import copy
 import pygame
 from Kretanje import *
 from Unos import  *
-import time
 import numpy
 import math
 import random
-from Inizijalizacija import Inizijalizacija
+from Inizijalizacija import*
 from Sort import Sort
 from KlasaSimulacija import *
+from CrossOver import *
 pygame.init()
 
 clock = pygame.time.Clock()     # load clock
@@ -97,8 +97,12 @@ def main():
                 pygame.draw.rect(screen, My_light_blue_color, (x, y, x_size, y_size))
             Blok[ix] = numpy.array([x, y])
             ix += 1
+            Niz_Populacija = []
             Niz_Jedinki= []
             Niz_Fitnessa = []
+            Najbolji_Niz = []
+            Odbaceni_Niz = []
+            Ostalo = []
         pygame.display.flip()
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -107,11 +111,22 @@ def main():
                 for i in range(0, 1000):                #stvaram 1000 populacija jedinki
                     niz_instrukcija = Inizijalizacija(Skretanje)                #Inicijalizujem random GKV
                     jedinka = Simulacija(niz_instrukcija, Blok)                 #stvaram jedinku
-                    Niz_Jedinki.append(copy.copy(jedinka))                      #U Niz_Jedinki ubacujem jedinke
+                    Niz_Jedinki.append(jedinka.Niz_Instrukcija)                      #U Niz_Jedinki ubacujem jedinke
                     Niz_Fitnessa.append(Fit(jedinka.Trci()))                    #U Niz Fitnessa ubacujem Fitness od jedinke
+
                 Niz_Jedinki = Sort(Niz_Fitnessa, Niz_Jedinki)                   #Na kraju sortiram Niz_Jedinki na osnovu Fitnesa
-                for i in range(0, 1000):
-                    print(Niz_Jedinki[i])
+                Najbolji_Niz = Niz_Jedinki[:400]                             #Selekcija 40% Najboljih poopulacija
+                Odbaceni_Niz = Niz_Jedinki[400:700]                         #Koriscenje odbacenih populacija za CrossOver
+                Ostalo = Niz_Jedinki[700:]                                  #Ostatak
+                for i in range(0, 300, 2):                                  #Cuveni One Point crossover
+                    Odbaceni_Niz[i], Odbaceni_Niz[i+1] = OnePoint(Odbaceni_Niz[i],Odbaceni_Niz[i+1])
+                for i in range(0, 300):
+                    Ostalo[i] = RandomZaPopulaciju()                        #Za ostatak Niza ubaciti random G, K, V
+                Niz_Populacija = Najbolji_Niz+Odbaceni_Niz+Ostalo
+                
+
+
+
         pygame.display.flip()
 
 if __name__ == '__main__':
