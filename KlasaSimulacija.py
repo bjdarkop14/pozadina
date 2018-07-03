@@ -55,11 +55,11 @@ class Simulacija:
         x0 = (x1 + x2)/2
         return numpy.sqrt(((x0-x)*(x0-x)))          #Vraca Euklitsku distancu
 
-    #Buble sort
+    #Sort Jedinki da bi se izuvkle jedinke sa najboljim Fitnessom
     def Sort(self, Niz_Fitnessa, Niz_Jedinki):
         for passnum in range(len(Niz_Fitnessa) - 1, 0, -1):
             for i in range(passnum):
-                if Niz_Fitnessa[i] > Niz_Fitnessa[i + 1]:
+                if Niz_Fitnessa[i] < Niz_Fitnessa[i + 1]:
                     temp = Niz_Fitnessa[i]
                     k = Niz_Jedinki[i]
                     Niz_Fitnessa[i] = Niz_Fitnessa[i + 1]
