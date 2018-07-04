@@ -107,23 +107,26 @@ def main():
                 # print("Gas - Kocnica - Volan \t x0 - x - Brzina - Ubrzanje \n")
                 done = True
                 # stvaram 1000 populacija jedinki
+                generacija = open("PrvaGeneracija.txt","w")
                 for i in range(0, 1000) :
                     niz_instrukcija = Inizijalizacija(Skretanje)  # Inicijalizujem random GKV
                     jedinka = Simulacija(niz_instrukcija, Blok)  # stvaram jedinku
                     Niz_Jedinki.append(jedinka.Niz_Instrukcija)  # U Niz_Jedinki ubacujem jedinke
                     Niz_Fitnessa.append(FitU(jedinka.Trci()))  # U Niz Fitnessa ubacujem Fitness od jedinke
+                    generacija.write(str(niz_instrukcija))
 
                 # Evolucija
                 for evolucija in range(0, 1000):
                     Niz_Jedinki, Niz_Fitnessa = Sort(Niz_Fitnessa, Niz_Jedinki)  # Na kraju sortiram Niz_Jedinki na osnovu Fitnesa
                     f.write(str(Niz_Fitnessa[0]) + "\n")
+                    print(str(evolucija) + "\t" + str(Niz_Fitnessa[0]))
                     Najbolji_Niz = Niz_Jedinki[:400]  # Selekcija 40% Najboljih poopulacija
                     Odbaceni_Niz = Niz_Jedinki[400:700]  # Koriscenje odbacenih populacija za CrossOver
                     Ostalo = Niz_Jedinki[700:]  # Ostatak
                     Niz_Jedinki = []
                     Niz_Fitnessa = []
                     for i in range(0, 300, 2):
-                        Odbaceni_Niz[i], Odbaceni_Niz[i + 1] = OnePoint(Odbaceni_Niz[i], Odbaceni_Niz[i + 1])
+                        Odbaceni_Niz[i], Odbaceni_Niz[i + 1] = TwoPoint(Odbaceni_Niz[i], Odbaceni_Niz[i + 1])
                         # print(Odbaceni_Niz[i])                                #Cuveni One Point crossover
                     for i in range(0, 300):
                         Ostalo[i] = RandomZaPopulaciju()  # Za ostatak Niza ubaciti random G, K, V
