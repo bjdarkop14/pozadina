@@ -3,10 +3,12 @@ import random
 def RandomZaPopulaciju():
     a = [0] * 24
     for i in range(0, 24):
+        a[i] = [0]*3
+    for i in range(0, 24):
         a[i][0] = random.randint(0,100)
         a[i][1] = random.randint(0,100)
         a[i][2] = random.randint(0,180)
-
+    return a[i]
 
 
 

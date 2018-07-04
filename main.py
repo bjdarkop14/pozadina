@@ -100,33 +100,37 @@ def main():
             Niz_Populacija = []
             Niz_Jedinki= []
             Niz_Fitnessa = []
-            Najbolji_Niz = []
-            Odbaceni_Niz = []
-            Ostalo = []
         pygame.display.flip()
+        f = open("podaci.txt","w")
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 # print("Gas - Kocnica - Volan \t x0 - x - Brzina - Ubrzanje \n")
                 done = True
-                for i in range(0, 1000):                #stvaram 1000 populacija jedinki
-                    niz_instrukcija = Inizijalizacija(Skretanje)                #Inicijalizujem random GKV
-                    jedinka = Simulacija(niz_instrukcija, Blok)                 #stvaram jedinku
-                    Niz_Jedinki.append(jedinka.Niz_Instrukcija)                      #U Niz_Jedinki ubacujem jedinke
-                    Niz_Fitnessa.append(Fit(jedinka.Trci()))                    #U Niz Fitnessa ubacujem Fitness od jedinke
+                # stvaram 1000 populacija jedinki
+                for i in range(0, 1000):
+                    niz_instrukcija = Inizijalizacija(Skretanje)  # Inicijalizujem random GKV
+                    jedinka = Simulacija(niz_instrukcija, Blok)  # stvaram jedinku
+                    Niz_Jedinki.append(jedinka.Niz_Instrukcija)  # U Niz_Jedinki ubacujem jedinke
+                    Niz_Fitnessa.append(Fit(jedinka.Trci()))  # U Niz Fitnessa ubacujem Fitness od jedinke
 
-                Niz_Jedinki = Sort(Niz_Fitnessa, Niz_Jedinki)                   #Na kraju sortiram Niz_Jedinki na osnovu Fitnesa
-                Najbolji_Niz = Niz_Jedinki[:400]                             #Selekcija 40% Najboljih poopulacija
-                Odbaceni_Niz = Niz_Jedinki[400:700]                         #Koriscenje odbacenih populacija za CrossOver
-                Ostalo = Niz_Jedinki[700:]                                  #Ostatak
-                for i in range(0, 300, 2):                                  #Cuveni One Point crossover
-                    Odbaceni_Niz[i], Odbaceni_Niz[i+1] = OnePoint(Odbaceni_Niz[i],Odbaceni_Niz[i+1])
-                for i in range(0, 300):
-                    Ostalo[i] = RandomZaPopulaciju()                        #Za ostatak Niza ubaciti random G, K, V
-                Niz_Populacija = Najbolji_Niz+Odbaceni_Niz+Ostalo
-                
+                # Evolucija
+                for evolucija in range(0, 1000):
+                    Niz_Jedinki, Niz_Fitnessa = Sort(Niz_Fitnessa, Niz_Jedinki)  # Na kraju sortiram Niz_Jedinki na osnovu Fitnesa
+                    f.write(str(Niz_Fitnessa[0]) + "\n")
+                    Najbolji_Niz = Niz_Jedinki[:400]  # Selekcija 40% Najboljih poopulacija
+                    Odbaceni_Niz = Niz_Jedinki[400:700]  # Koriscenje odbacenih populacija za CrossOver
+                    Ostalo = Niz_Jedinki[700:]  # Ostatak
+                    Niz_Jedinki = []
+                    Niz_Fitnessa = []
+                    for i in range(0, 300, 2):
+                        Odbaceni_Niz[i], Odbaceni_Niz[i + 1] = OnePoint(Odbaceni_Niz[i], Odbaceni_Niz[i + 1])
+                        # print(Odbaceni_Niz[i])                                #Cuveni One Point crossover
 
-
-
+                    for i in range(0, 300):
+                        Ostalo[i] = RandomZaPopulaciju()  # Za ostatak Niza ubaciti random G, K, V
+                    Niz_Jedinki = Najbolji_Niz + Odbaceni_Niz + Ostalo
+                    Deca = Simulacija(Niz_Jedinki, Blok)
+                    Niz_Fitnessa.append(Fit(Deca.Trci()))
         pygame.display.flip()
 
 if __name__ == '__main__':

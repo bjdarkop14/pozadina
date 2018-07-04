@@ -10,4 +10,5 @@ def Sort(Niz_Objekata, Niz_Jedinki):
                 Niz_Jedinki[passnum] = Niz_Jedinki[i]
                 Niz_Objekata[i] = temp
                 Niz_Jedinki[i] = prom
-    return Niz_Jedinki
+    return Niz_Jedinki, Niz_Objekata
+
