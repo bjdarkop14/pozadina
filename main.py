@@ -107,11 +107,11 @@ def main():
                 # print("Gas - Kocnica - Volan \t x0 - x - Brzina - Ubrzanje \n")
                 done = True
                 # stvaram 1000 populacija jedinki
-                for i in range(0, 1000):
+                for i in range(0, 1000) :
                     niz_instrukcija = Inizijalizacija(Skretanje)  # Inicijalizujem random GKV
                     jedinka = Simulacija(niz_instrukcija, Blok)  # stvaram jedinku
                     Niz_Jedinki.append(jedinka.Niz_Instrukcija)  # U Niz_Jedinki ubacujem jedinke
-                    Niz_Fitnessa.append(Fit(jedinka.Trci()))  # U Niz Fitnessa ubacujem Fitness od jedinke
+                    Niz_Fitnessa.append(FitU(jedinka.Trci()))  # U Niz Fitnessa ubacujem Fitness od jedinke
 
                 # Evolucija
                 for evolucija in range(0, 1000):
@@ -125,12 +125,13 @@ def main():
                     for i in range(0, 300, 2):
                         Odbaceni_Niz[i], Odbaceni_Niz[i + 1] = OnePoint(Odbaceni_Niz[i], Odbaceni_Niz[i + 1])
                         # print(Odbaceni_Niz[i])                                #Cuveni One Point crossover
-
                     for i in range(0, 300):
                         Ostalo[i] = RandomZaPopulaciju()  # Za ostatak Niza ubaciti random G, K, V
-                    Niz_Jedinki = Najbolji_Niz + Odbaceni_Niz + Ostalo
-                    Deca = Simulacija(Niz_Jedinki, Blok)
-                    Niz_Fitnessa.append(Fit(Deca.Trci()))
+                        #print(Ostalo[i])
+                    Niz_Jedinki = Najbolji_Niz + Odbaceni_Niz + Ostalo          #Spajanje GKV
+                    for i in range(0,1000):
+                        Deca = Simulacija(Niz_Jedinki[i], Blok)                    #Pravljenje dece
+                        Niz_Fitnessa.append(FitU(Deca.Trci()))
         pygame.display.flip()
 
 if __name__ == '__main__':

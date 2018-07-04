@@ -8,7 +8,7 @@ def RandomZaPopulaciju():
         a[i][0] = random.randint(0,100)
         a[i][1] = random.randint(0,100)
         a[i][2] = random.randint(0,180)
-    return a[i]
+    return a
 
 
 

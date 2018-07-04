@@ -4,7 +4,7 @@ import numpy
 import pygame
 from Inizijalizacija import Inizijalizacija
 
-def Fit(UkupanFitness):
+def FitU(UkupanFitness):
     return math.sqrt(UkupanFitness[0] * UkupanFitness[0] + UkupanFitness[1] * UkupanFitness[1])  # Odstupanje
 
 
@@ -41,7 +41,7 @@ class Simulacija:
     def Trci(self):
         dt = 0.1
         Fit = 0
-        StaraBrzina = numpy.array([0,0])
+        StaraBrzina = numpy.array([0, 0])
         x0 = numpy.array([170, 760])
         for i in range(0, 24):
             a = self.Ubrzanje(i)
@@ -52,7 +52,6 @@ class Simulacija:
             #       + ", " + str(x0) + ", " + str(x) + ", " + str(StaraBrzina ) + ", " + str(brzina) + ", " + str(a))
             x0 = x
             StaraBrzina = brzina
-
         return numpy.sqrt((Fit / 24))
     def Fittness(self, x, XBloka, YBloka):
         x1 = numpy.array([XBloka, YBloka])
