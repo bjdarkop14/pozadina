@@ -1,13 +1,15 @@
+import copy
 import pygame
 from Kretanje import *
 from Unos import  *
-import time
+import numpy
 import math
 import random
-from Inizijalizacija import Inizijalizacija
+from Inizijalizacija import*
+from Sort import Sort
 from KlasaSimulacija import *
+from CrossOver import *
 pygame.init()
-
 
 clock = pygame.time.Clock()     # load clock
 
@@ -95,18 +97,41 @@ def main():
                 pygame.draw.rect(screen, My_light_blue_color, (x, y, x_size, y_size))
             Blok[ix] = numpy.array([x, y])
             ix += 1
+            Niz_Populacija = []
+            Niz_Jedinki= []
+            Niz_Fitnessa = []
         pygame.display.flip()
+        f = open("podaci.txt","w")
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 # print("Gas - Kocnica - Volan \t x0 - x - Brzina - Ubrzanje \n")
                 done = True
-                for i in range(0, 1000):
-                    niz_instrukcija = Inizijalizacija(Skretanje)
-                    sim = Simulacija(niz_instrukcija, Blok)
-                    Fittness = sim.Trci()
-                    Fit = math.sqrt(Fittness[0] * Fittness[0] + Fittness[1] * Fittness[1])
-                    # print(Fit)
+                # stvaram 1000 populacija jedinki
+                for i in range(0, 1000) :
+                    niz_instrukcija = Inizijalizacija(Skretanje)  # Inicijalizujem random GKV
+                    jedinka = Simulacija(niz_instrukcija, Blok)  # stvaram jedinku
+                    Niz_Jedinki.append(jedinka.Niz_Instrukcija)  # U Niz_Jedinki ubacujem jedinke
+                    Niz_Fitnessa.append(FitU(jedinka.Trci()))  # U Niz Fitnessa ubacujem Fitness od jedinke
 
+                # Evolucija
+                for evolucija in range(0, 1000):
+                    Niz_Jedinki, Niz_Fitnessa = Sort(Niz_Fitnessa, Niz_Jedinki)  # Na kraju sortiram Niz_Jedinki na osnovu Fitnesa
+                    f.write(str(Niz_Fitnessa[0]) + "\n")
+                    Najbolji_Niz = Niz_Jedinki[:400]  # Selekcija 40% Najboljih poopulacija
+                    Odbaceni_Niz = Niz_Jedinki[400:700]  # Koriscenje odbacenih populacija za CrossOver
+                    Ostalo = Niz_Jedinki[700:]  # Ostatak
+                    Niz_Jedinki = []
+                    Niz_Fitnessa = []
+                    for i in range(0, 300, 2):
+                        Odbaceni_Niz[i], Odbaceni_Niz[i + 1] = OnePoint(Odbaceni_Niz[i], Odbaceni_Niz[i + 1])
+                        # print(Odbaceni_Niz[i])                                #Cuveni One Point crossover
+                    for i in range(0, 300):
+                        Ostalo[i] = RandomZaPopulaciju()  # Za ostatak Niza ubaciti random G, K, V
+                        #print(Ostalo[i])
+                    Niz_Jedinki = Najbolji_Niz + Odbaceni_Niz + Ostalo          #Spajanje GKV
+                    for i in range(0,1000):
+                        Deca = Simulacija(Niz_Jedinki[i], Blok)                    #Pravljenje dece
+                        Niz_Fitnessa.append(FitU(Deca.Trci()))
         pygame.display.flip()
 
 if __name__ == '__main__':
