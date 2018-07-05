@@ -115,29 +115,39 @@ def main():
         Niz_Jedinki.append(jedinka.Niz_Instrukcija)  # U Niz_Jedinki ubacujem jedinke
         Niz_Fitnessa.append(FitU(jedinka.Trci()))  # U Niz Fitnessa ubacujem Fitness od jedinke
         generacija.write(str(niz_instrukcija))
-
+    CrossPop = 3000
+    Generacija = 10000
+    NajboljiBr = 4000
+    OstaliBr = 3000
     # Evolucija
-    for evolucija in range(0, 10000):
+    for evolucija in range(0, Generacija):
         Niz_Jedinki, Niz_Fitnessa = Sort(Niz_Fitnessa, Niz_Jedinki)  # Na kraju sortiram Niz_Jedinki na osnovu Fitnesa
         f.write(str(Niz_Fitnessa[0]) + "\n")
         print(str(evolucija) + "\t" + str(Niz_Fitnessa[0]))
-        Najbolji_Niz = Niz_Jedinki[:4000]  # Selekcija 40% Najboljih poopulacija
-        Odbaceni_Niz = Niz_Jedinki[4000:7000]  # Koriscenje odbacenih populacija za CrossOver
-        Ostalo = Niz_Jedinki[7000:]  # Ostatak
+        Najbolji_Niz = Niz_Jedinki[:NajboljiBr]  # Selekcija 40% Najboljih poopulacija
+        Odbaceni_Niz = Niz_Jedinki[NajboljiBr:(Generacija-OstaliBr)]  # Koriscenje odbacenih populacija za CrossOver
+        Ostalo = Niz_Jedinki[(Generacija - OstaliBr):]  # Ostatak
         Niz_Jedinki = []
         Niz_Fitnessa = []
-        for i in range(0, 3000, 2):
-            Odbaceni_Niz[i], Odbaceni_Niz[i + 1] = TwoPoint(Odbaceni_Niz[i], Odbaceni_Niz[i + 1])
-            # print(Odbaceni_Niz[i])                                #Cuveni One Point crossover
-        for i in range(0, 3000):
+        # for i in range(0, CrossPop, 2):
+        #     # Odbaceni_Niz[i], Odbaceni_Niz[i + 1] = TwoPoint(Odbaceni_Niz[i], Odbaceni_Niz[i + 1])
+        #     # # print(Odbaceni_Niz[i])                                #Cuveni Two Point crossover
+        #     for j in range(0, 2):                                       #Vraca srednju vrednost od dve jedinke i pravi trecu
+        #         if j == 0:
+        #             Odbaceni_Niz[i] = SrednjiCrossOver(Odbaceni_Niz[i], Odbaceni_Niz[i+1])
+        #         if j == 1:
+        #             pass
+        for i in range(0,CrossPop):
+            Odbaceni_Niz[i], Odbaceni_Niz[i + 1] = RandomCrossOver(Odbaceni_Niz[i], Odbaceni_Niz[i + 1])
+        for i in range(0, OstaliBr):
             Ostalo[i] = RandomZaPopulaciju()  # Za ostatak Niza ubaciti random G, K, V
             # print(Ostalo[i])
         Niz_Jedinki = Najbolji_Niz + Odbaceni_Niz + Ostalo  # Spajanje GKV
-        for i in range(0, 10000):
+        for i in range(0, Generacija):
             Deca = Simulacija(Niz_Jedinki[i], Blok)  # Pravljenje dece
             Niz_Fitnessa.append(FitU(Deca.Trci()))
         # pygame.display.flip()
-        for i in range(0, 10000):
+        for i in range(0, Generacija):
             Niz_Jedinki[i] = Mutacija(Niz_Jedinki[i])
 
 
