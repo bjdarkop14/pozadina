@@ -28,12 +28,15 @@ def SrednjiCrossOver(ind1, ind2):
     return (old1_set + old2_set) / 2
 
 def RandomCrossOver(ind1, ind2):
-    rnd = random.randint(2,12)
+    rnd = random.randint(2, 12)
     for i in range(0, rnd):
-        rnd1 = random.randint(0, len(ind1))
-        rnd2 = random.randint(0, len(ind2))
-        print(len(ind1))
-        print(len(ind2))
-        ind1[rnd1], ind2[rnd2] = ind2[rnd2], ind1[rnd1]
+        rnd1 = random.randint(0, 24)
+        rnd2 = random.randint(0, 24)
+        if rnd2 >= rnd1:
+            rnd2 += 1
+        else:
+            rnd1, rnd2 = rnd2, rnd1
 
+        ind1[rnd1:rnd2], ind2[rnd1:rnd2] \
+            = ind2[rnd1:rnd2], ind1[rnd1:rnd2]
     return ind1, ind2

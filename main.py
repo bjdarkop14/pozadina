@@ -135,9 +135,7 @@ def main():
         #     for j in range(0, 2):                                       #Vraca srednju vrednost od dve jedinke i pravi trecu
         #         if j == 0:
         #             Odbaceni_Niz[i] = SrednjiCrossOver(Odbaceni_Niz[i], Odbaceni_Niz[i+1])
-        #         if j == 1:
-        #             pass
-        for i in range(0,CrossPop):
+        for i in range(0, CrossPop,2):
             Odbaceni_Niz[i], Odbaceni_Niz[i + 1] = RandomCrossOver(Odbaceni_Niz[i], Odbaceni_Niz[i + 1])
         for i in range(0, OstaliBr):
             Ostalo[i] = RandomZaPopulaciju()  # Za ostatak Niza ubaciti random G, K, V
