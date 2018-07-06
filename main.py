@@ -1,10 +1,5 @@
-import copy
 import pygame
-from Kretanje import *
-from Unos import  *
 import numpy
-import math
-import random
 from Inizijalizacija import*
 from Sort import Sort
 from KlasaSimulacija import *
@@ -107,12 +102,13 @@ def main():
         #     if event.type == pygame.QUIT:
         #         # print("Gas - Kocnica - Volan \t x0 - x - Brzina - Ubrzanje \n")
         #         done = True
-    Generacija = 10000
-    CrossPop = int(0.3 * Generacija)
-    NajboljiBr = int(0.4 * Generacija)
-    OstaliBr = int(0.3 * Generacija)
+    Generacija = 1000
+    br_Jedinki = 10
+    CrossPop = int(0.3 * br_Jedinki)
+    NajboljiBr = int(0.4 * br_Jedinki)
+    OstaliBr = int(0.3 * br_Jedinki)
     generacija = open("PrvaGeneracija.txt", "w")
-    for i in range(0, Generacija):
+    for i in range(0, br_Jedinki):
         niz_instrukcija = Inizijalizacija(Skretanje)  # Inicijalizujem random GKV
         jedinka = Simulacija(niz_instrukcija, Blok)  # stvaram jedinku
         Niz_Jedinki.append(jedinka.Niz_Instrukcija)  # U Niz_Jedinki ubacujem jedinke
@@ -129,7 +125,7 @@ def main():
 
         Najbolji_Niz = Niz_Jedinki[:NajboljiBr]  # Selekcija 40% Najboljih poopulacija
         CrossOver_Niz = Niz_Jedinki[NajboljiBr:(Generacija-OstaliBr)]  # Koriscenje odbacenih populacija za CrossOver
-        Ostalo = Niz_Jedinki[(Generacija - OstaliBr):]  # Ostatak
+        Ostalo = Niz_Jedinki[(br_Jedinki - OstaliBr):]  # Ostatak
 
         Niz_Jedinki = []
         Niz_Fitnessa = []
@@ -146,11 +142,11 @@ def main():
             Ostalo[i] = RandomZaPopulaciju()  # Za ostatak Niza ubaciti random G, K, V
             # print(Ostalo[i])
         Niz_Jedinki = Najbolji_Niz + CrossOver_Niz + Ostalo  # Spajanje GKV
-        for i in range(0, Generacija):
+        for i in range(0, br_Jedinki):
             Deca = Simulacija(Niz_Jedinki[i], Blok)  # Pravljenje dece
             Niz_Fitnessa.append(FitU(Deca.Trci()))
         # pygame.display.flip()
-        for i in range(0, Generacija):
+        for i in range(0, br_Jedinki):
             Niz_Jedinki[i] = Mutacija(Niz_Jedinki[i])
 
 

@@ -3,8 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="9ca11833-d303-443b-a51a-15acea8c1299" name="Default" comment="Izmena">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Evolucija.py" afterPath="$PROJECT_DIR$/Evolucija.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Inizijalizacija.py" afterPath="$PROJECT_DIR$/Inizijalizacija.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/KlasaSimulacija.py" afterPath="$PROJECT_DIR$/KlasaSimulacija.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PrvaGeneracija.txt" afterPath="$PROJECT_DIR$/PrvaGeneracija.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Sort.py" afterPath="$PROJECT_DIR$/Sort.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main.py" afterPath="$PROJECT_DIR$/main.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/podaci.txt" afterPath="$PROJECT_DIR$/podaci.txt" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -17,15 +22,25 @@
     <option name="PATCH_PATH" value="" />
   </component>
   <component name="DockManager">
-    <window id="1">
+    <window id="2">
       <content type="file-editors">
         <state>
-          <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-            <file leaf-file-name="KlasaSimulacija.py" pinned="false" current-in-tab="true">
-              <entry file="file://$PROJECT_DIR$/KlasaSimulacija.py">
+          <leaf>
+            <file leaf-file-name="Sort.py" pinned="false" current-in-tab="true">
+              <entry file="file://$PROJECT_DIR$/Sort.py">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="519">
-                    <caret line="54" column="35" lean-forward="true" selection-start-line="54" selection-start-column="35" selection-end-line="54" selection-end-column="35" />
+                  <state relative-caret-position="0">
+                    <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+                    <folding />
+                  </state>
+                </provider>
+              </entry>
+            </file>
+            <file leaf-file-name="Evolucija.py" pinned="false" current-in-tab="false">
+              <entry file="file://$PROJECT_DIR$/Evolucija.py">
+                <provider selected="true" editor-type-id="text-editor">
+                  <state relative-caret-position="99">
+                    <caret line="55" column="19" lean-forward="true" selection-start-line="55" selection-start-column="19" selection-end-line="55" selection-end-column="19" />
                     <folding>
                       <element signature="e#0#13#0" expanded="true" />
                     </folding>
@@ -44,10 +59,10 @@
       <file leaf-file-name="main.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="113" column="0" lean-forward="false" selection-start-line="113" selection-start-column="0" selection-end-line="113" selection-end-column="0" />
+            <state relative-caret-position="438">
+              <caret line="154" column="30" lean-forward="true" selection-start-line="154" selection-start-column="30" selection-end-line="154" selection-end-column="30" />
               <folding>
-                <element signature="e#0#11#0" expanded="true" />
+                <element signature="e#0#13#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -66,8 +81,8 @@
       <file leaf-file-name="CrossOver.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CrossOver.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="490">
-              <caret line="40" column="46" lean-forward="false" selection-start-line="40" selection-start-column="46" selection-end-line="40" selection-end-column="46" />
+            <state relative-caret-position="174">
+              <caret line="32" column="34" lean-forward="false" selection-start-line="32" selection-start-column="34" selection-end-line="32" selection-end-column="34" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
               </folding>
@@ -75,22 +90,24 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Sort.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Sort.py">
+      <file leaf-file-name="Inizijalizacija.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Inizijalizacija.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="6" column="44" lean-forward="false" selection-start-line="6" selection-start-column="44" selection-end-line="6" selection-end-column="44" />
+            <state relative-caret-position="570">
+              <caret line="193" column="18" lean-forward="true" selection-start-line="193" selection-start-column="18" selection-end-line="193" selection-end-column="18" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Inizijalizacija.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Inizijalizacija.py">
+      <file leaf-file-name="KlasaSimulacija.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/KlasaSimulacija.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="396">
-              <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="189">
+              <caret line="49" column="71" lean-forward="false" selection-start-line="49" selection-start-column="71" selection-end-line="49" selection-end-column="71" />
+              <folding>
+                <element signature="e#0#13#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -119,17 +136,17 @@
         <option value="$PROJECT_DIR$/Crta.py" />
         <option value="$PROJECT_DIR$/lista.py" />
         <option value="$PROJECT_DIR$/Broj_Instrukcija.py" />
-        <option value="$PROJECT_DIR$/Evolucija.py" />
         <option value="$PROJECT_DIR$/Unos.py" />
         <option value="$PROJECT_DIR$/Kretanje.py" />
         <option value="$PROJECT_DIR$/Random Birac.py" />
         <option value="$PROJECT_DIR$/KlasaJedinka.py" />
-        <option value="$PROJECT_DIR$/Inizijalizacija.py" />
-        <option value="$PROJECT_DIR$/KlasaSimulacija.py" />
-        <option value="$PROJECT_DIR$/Sort.py" />
         <option value="$PROJECT_DIR$/Mutacija.py" />
         <option value="$PROJECT_DIR$/CrossOver.py" />
+        <option value="$PROJECT_DIR$/Inizijalizacija.py" />
+        <option value="$PROJECT_DIR$/KlasaSimulacija.py" />
+        <option value="$PROJECT_DIR$/Evolucija.py" />
         <option value="$PROJECT_DIR$/main.py" />
+        <option value="$PROJECT_DIR$/Sort.py" />
       </list>
     </option>
   </component>
@@ -140,7 +157,7 @@
     <option name="height" value="1060" />
   </component>
   <component name="ProjectView">
-    <navigator proportions="" version="1">
+    <navigator currentView="ProjectPane" proportions="" version="1">
       <flattenPackages />
       <showMembers />
       <showModules />
@@ -153,12 +170,16 @@
       <manualOrder />
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes />
+    <panes>
+      <pane id="Scratches" />
+      <pane id="ProjectPane" />
+      <pane id="Scope" />
+    </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Font" />
   </component>
-  <component name="RunManager" selected="Python.main">
+  <component name="RunManager" selected="Python.Evolucija">
     <configuration default="false" name="main" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -387,10 +408,10 @@
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.main" />
-        <item index="1" class="java.lang.String" itemvalue="Python.Random Birac" />
-        <item index="2" class="java.lang.String" itemvalue="Python.KlasaSimulacija" />
-        <item index="3" class="java.lang.String" itemvalue="Python.Evolucija" />
+        <item index="0" class="java.lang.String" itemvalue="Python.Evolucija" />
+        <item index="1" class="java.lang.String" itemvalue="Python.main" />
+        <item index="2" class="java.lang.String" itemvalue="Python.Random Birac" />
+        <item index="3" class="java.lang.String" itemvalue="Python.KlasaSimulacija" />
         <item index="4" class="java.lang.String" itemvalue="Python.Inizijalizacija" />
       </list>
     </recent_temporary>
@@ -529,13 +550,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/teren.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="513">
-          <caret line="82" column="21" lean-forward="false" selection-start-line="43" selection-start-column="3" selection-end-line="82" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Linija.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="154">
@@ -576,7 +590,7 @@
         <state relative-caret-position="354">
           <caret line="124" column="0" lean-forward="false" selection-start-line="124" selection-start-column="0" selection-end-line="124" selection-end-column="0" />
           <folding>
-            <element signature="e#0#11#0" expanded="true" />
+            <element signature="e#0#13#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -600,7 +614,7 @@
         <state relative-caret-position="1364">
           <caret line="79" column="85" lean-forward="true" selection-start-line="71" selection-start-column="85" selection-end-line="79" selection-end-column="85" />
           <folding>
-            <element signature="e#0#11#0" expanded="true" />
+            <element signature="e#0#13#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -631,7 +645,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#11#0" expanded="true" />
+            <element signature="e#0#13#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -648,7 +662,7 @@
         <state relative-caret-position="462">
           <caret line="21" column="18" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
           <folding>
-            <element signature="e#0#11#0" expanded="true" />
+            <element signature="e#0#13#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -763,18 +777,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Evolucija.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/PrvaGeneracija.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-3663">
           <caret line="0" column="512" lean-forward="false" selection-start-line="0" selection-start-column="512" selection-end-line="0" selection-end-column="512" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -782,7 +788,42 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python35-32/Lib/site-packages/deap/tools/_hypervolume/pyhv.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="223">
+          <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Inizijalizacija.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="570">
+          <caret line="193" column="18" lean-forward="true" selection-start-line="193" selection-start-column="18" selection-end-line="193" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/KlasaSimulacija.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="49" column="71" lean-forward="false" selection-start-line="49" selection-start-column="71" selection-end-line="49" selection-end-column="71" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CrossOver.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="174">
+          <caret line="32" column="34" lean-forward="false" selection-start-line="32" selection-start-column="34" selection-end-line="32" selection-end-column="34" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -794,10 +835,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CrossOver.py">
+    <entry file="file://$PROJECT_DIR$/Evolucija.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="490">
-          <caret line="40" column="46" lean-forward="false" selection-start-line="40" selection-start-column="46" selection-end-line="40" selection-end-column="46" />
+        <state relative-caret-position="99">
+          <caret line="55" column="19" lean-forward="true" selection-start-line="55" selection-start-column="19" selection-end-line="55" selection-end-column="19" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="438">
+          <caret line="154" column="30" lean-forward="true" selection-start-line="154" selection-start-column="30" selection-end-line="154" selection-end-column="30" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
           </folding>
@@ -806,37 +857,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Sort.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="6" column="44" lean-forward="false" selection-start-line="6" selection-start-column="44" selection-end-line="6" selection-end-column="44" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/KlasaSimulacija.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="519">
-          <caret line="54" column="35" lean-forward="true" selection-start-line="54" selection-start-column="35" selection-end-line="54" selection-end-column="35" />
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Inizijalizacija.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="113" column="0" lean-forward="false" selection-start-line="113" selection-start-column="0" selection-end-line="113" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
