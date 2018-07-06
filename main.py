@@ -103,7 +103,7 @@ def main():
         #         # print("Gas - Kocnica - Volan \t x0 - x - Brzina - Ubrzanje \n")
         #         done = True
     Generacija = 1000
-    br_Jedinki = 10
+    br_Jedinki = 100
     CrossPop = int(0.3 * br_Jedinki)
     NajboljiBr = int(0.4 * br_Jedinki)
     OstaliBr = int(0.3 * br_Jedinki)
