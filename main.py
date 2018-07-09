@@ -5,6 +5,7 @@ from Sort import Sort
 from KlasaSimulacija import *
 from CrossOver import *
 from Mutacija import *
+from Graph import NacrtajGrafik
 # pygame.init()
 #
 # clock = pygame.time.Clock()     # load clock
@@ -102,8 +103,9 @@ def main():
         #     if event.type == pygame.QUIT:
         #         # print("Gas - Kocnica - Volan \t x0 - x - Brzina - Ubrzanje \n")
         #         done = True
-    Generacija = 1000
+    Generacija = 10
     br_Jedinki = 100
+    Min_Fitness = [0] * Generacija
     CrossPop = int(0.3 * br_Jedinki)
     NajboljiBr = int(0.4 * br_Jedinki)
     OstaliBr = int(0.3 * br_Jedinki)
@@ -122,7 +124,7 @@ def main():
 
         f.write(str(Niz_Fitnessa[0]) + "\n")
         print(str(evolucija) + "\t" + str(Niz_Fitnessa[0]))
-
+        Min_Fitness[evolucija] = Niz_Fitnessa[0]
         Najbolji_Niz = Niz_Jedinki[:NajboljiBr]  # Selekcija 40% Najboljih poopulacija
         CrossOver_Niz = Niz_Jedinki[NajboljiBr:(Generacija-OstaliBr)]  # Koriscenje odbacenih populacija za CrossOver
         Ostalo = Niz_Jedinki[(br_Jedinki - OstaliBr):]  # Ostatak
@@ -155,6 +157,7 @@ def main():
         with Pool(20) as pool:
             Niz_Fitnessa = list(pool.map(oceni, zip(Niz_Jedinki, repeat(Blok))))
 
+    NacrtajGrafik(Min_Fitness)
 def oceni(par):
     jedinka, Blok = par
     Deca = Simulacija(jedinka, Blok)  # Pravljenje dece
